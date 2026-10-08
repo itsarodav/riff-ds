@@ -1,10 +1,10 @@
 :host {
   display: block;
   overflow: hidden;
-  border: 1px solid var(--riff-sage-140);
-  border-radius: var(--pg-radius);
-  background: var(--riff-sage-150);
-  color: var(--riff-sage-20);
+  border: 1px solid var(--pg-color-code-border);
+  border-radius: var(--pg-radius-md);
+  background: var(--pg-color-code-bg);
+  color: var(--pg-color-code-text);
 }
 
 .header {
@@ -13,7 +13,7 @@
   justify-content: space-between;
   gap: var(--riff-space-2);
   padding: var(--riff-space-2) var(--riff-space-2) 0;
-  border-bottom: 1px solid var(--riff-sage-140);
+  border-bottom: 1px solid var(--pg-color-code-border);
 }
 
 .tabs {
@@ -27,7 +27,7 @@
   padding: var(--riff-space-2) var(--riff-space-3);
   font-size: var(--riff-font-size-sm);
   font-weight: var(--riff-font-weight-medium);
-  color: var(--riff-sage-60);
+  color: var(--pg-color-code-muted);
 }
 
 .tab {
@@ -38,12 +38,12 @@
   cursor: pointer;
 
   &:hover {
-    color: var(--riff-sage-20);
+    color: var(--pg-color-code-text);
   }
 
   &[aria-selected='true'] {
-    border-bottom-color: var(--riff-blue-70);
-    color: var(--riff-sage-10);
+    border-bottom-color: var(--pg-color-code-accent);
+    color: var(--pg-color-code-text);
   }
 }
 
@@ -51,15 +51,15 @@
   flex-shrink: 0;
   margin-bottom: var(--riff-space-2);
   padding: var(--riff-space-1) var(--riff-space-3);
-  border: 1px solid var(--riff-sage-120);
+  border: 1px solid var(--pg-color-code-control);
   border-radius: var(--pg-radius-sm);
   background: transparent;
   font-size: var(--riff-font-size-xs);
-  color: var(--riff-sage-30);
+  color: var(--pg-color-code-text);
   cursor: pointer;
 
   &:hover {
-    background: var(--riff-sage-140);
+    background: var(--pg-color-code-border);
   }
 }
 

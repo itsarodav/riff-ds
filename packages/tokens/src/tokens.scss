@@ -1,6 +1,0 @@
-// Entrada CSS: compila a dist/tokens.css con todas las custom properties en :root.
-@use 'index' as riff;
-
-:root {
-  @include riff.primitives-css-vars;
-}

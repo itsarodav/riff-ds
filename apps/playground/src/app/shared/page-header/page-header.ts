@@ -24,7 +24,7 @@ import { Component, input } from '@angular/core';
     .eyebrow {
       font-size: var(--riff-font-size-sm);
       font-weight: var(--riff-font-weight-semibold);
-      color: var(--pg-accent);
+      color: var(--pg-color-accent);
     }
 
     .title {
@@ -40,7 +40,7 @@ import { Component, input } from '@angular/core';
 
     .description {
       font-size: var(--riff-font-size-base);
-      color: var(--pg-text-muted);
+      color: var(--pg-color-text-muted);
 
       @media (min-width: 48rem) {
         font-size: var(--riff-font-size-md);

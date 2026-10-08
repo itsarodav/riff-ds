@@ -1,6 +1,6 @@
 :host {
   display: block;
-  max-width: var(--pg-content-max);
+  max-width: var(--pg-size-content-max);
 }
 
 .section {
@@ -17,7 +17,7 @@
   }
 
   &__text {
-    color: var(--pg-text-muted);
+    color: var(--pg-color-text-muted);
   }
 }
 
@@ -39,9 +39,9 @@ code {
     grid-template-columns: auto 1fr;
     column-gap: var(--riff-space-3);
     padding: var(--riff-space-4);
-    border: 1px solid var(--pg-border);
-    border-radius: var(--pg-radius);
-    background: var(--pg-surface);
+    border: 1px solid var(--pg-color-border);
+    border-radius: var(--pg-radius-md);
+    background: var(--pg-color-surface);
     counter-increment: layer;
 
     &::before {
@@ -52,8 +52,8 @@ code {
       width: 2rem;
       height: 2rem;
       border-radius: 50%;
-      background: var(--pg-accent-soft);
-      color: var(--pg-accent);
+      background: var(--pg-color-accent-soft);
+      color: var(--pg-color-accent);
       font-weight: var(--riff-font-weight-bold);
     }
   }
@@ -64,7 +64,7 @@ code {
 
   &__text {
     font-size: var(--riff-font-size-sm);
-    color: var(--pg-text-muted);
+    color: var(--pg-color-text-muted);
   }
 }
 
@@ -74,15 +74,15 @@ code {
   gap: var(--riff-space-1);
   max-width: 20rem;
   padding: var(--riff-space-4);
-  border: 1px solid var(--pg-border);
-  border-radius: var(--pg-radius);
-  background: var(--pg-surface);
+  border: 1px solid var(--pg-color-border);
+  border-radius: var(--pg-radius-md);
+  background: var(--pg-color-surface);
   color: inherit;
   text-decoration: none;
   transition: border-color 150ms;
 
   &:hover {
-    border-color: var(--pg-accent);
+    border-color: var(--pg-color-accent);
   }
 
   &__swatches {
@@ -103,6 +103,6 @@ code {
 
   &__text {
     font-size: var(--riff-font-size-sm);
-    color: var(--pg-text-muted);
+    color: var(--pg-color-text-muted);
   }
 }

@@ -1,42 +1,11 @@
 @use 'sass:meta';
-@use 'primitives' as *;
+@use '../dist/scss/tokens' as *;
 
-// Emite los primitivos como CSS custom properties con prefijo --riff-.
+// Emite todos los tokens como CSS custom properties con prefijo --riff-.
 // Uso: :root { @include riff.primitives-css-vars; }
+// Alternativa sin Sass: importar @riff-ds/tokens/tokens.css (mismo contenido).
 @mixin primitives-css-vars {
-  // Color: --riff-blue-100
-  @each $family, $ramp in $riff-colors {
-    @each $step, $value in $ramp {
-      --riff-#{$family}-#{$step}: #{$value};
-    }
-  }
-  @each $name, $value in $riff-color-extras {
-    --riff-#{$name}: #{$value};
-  }
-
-  // Spacing: --riff-space-4 (rem) y --riff-space-4-px
-  --riff-spacing-unit: #{$riff-spacing-unit};
-  @each $step, $value in $riff-spaces {
-    --riff-space-#{$step}: #{$value};
-  }
-  @each $step, $value in $riff-spaces-px {
-    --riff-space-#{$step}-px: #{$value};
-  }
-
-  // Tipografía
-  @each $name, $value in $riff-font-families {
-    --riff-font-family-#{$name}: #{meta.inspect($value)};
-  }
-  @each $name, $value in $riff-font-sizes {
-    --riff-font-size-#{$name}: #{$value};
-  }
-  @each $name, $value in $riff-font-sizes-px {
-    --riff-font-size-#{$name}-px: #{$value};
-  }
-  @each $name, $value in $riff-font-weights {
-    --riff-font-weight-#{$name}: #{$value};
-  }
-  @each $name, $value in $riff-line-heights {
-    --riff-line-height-#{$name}: #{$value};
+  @each $name, $value in $riff-tokens {
+    --riff-#{$name}: #{meta.inspect($value)};
   }
 }

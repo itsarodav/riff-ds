@@ -1,0 +1,94 @@
+{
+  "spacing": {
+    "$type": "dimension",
+    "unit": {
+      "$value": {
+        "value": 4,
+        "unit": "px"
+      },
+      "$description": "Unidad base: 4px"
+    }
+  },
+  "space": {
+    "0": {
+      "$value": {
+        "value": 0,
+        "unit": "px"
+      }
+    },
+    "1": {
+      "$value": {
+        "value": 4,
+        "unit": "px"
+      }
+    },
+    "2": {
+      "$value": {
+        "value": 8,
+        "unit": "px"
+      }
+    },
+    "3": {
+      "$value": {
+        "value": 12,
+        "unit": "px"
+      }
+    },
+    "4": {
+      "$value": {
+        "value": 16,
+        "unit": "px"
+      }
+    },
+    "6": {
+      "$value": {
+        "value": 24,
+        "unit": "px"
+      }
+    },
+    "8": {
+      "$value": {
+        "value": 32,
+        "unit": "px"
+      }
+    },
+    "12": {
+      "$value": {
+        "value": 48,
+        "unit": "px"
+      }
+    },
+    "16": {
+      "$value": {
+        "value": 64,
+        "unit": "px"
+      }
+    },
+    "24": {
+      "$value": {
+        "value": 96,
+        "unit": "px"
+      }
+    },
+    "32": {
+      "$value": {
+        "value": 128,
+        "unit": "px"
+      }
+    },
+    "36": {
+      "$value": {
+        "value": 144,
+        "unit": "px"
+      }
+    },
+    "$description": "Spacing: multiplicador de 4px (space-4 = 16px). Valores en px; el build genera la rampa en rem (por defecto) y la de px (sufijo -px).",
+    "$type": "dimension",
+    "0-5": {
+      "$value": {
+        "value": 2,
+        "unit": "px"
+      }
+    }
+  }
+}

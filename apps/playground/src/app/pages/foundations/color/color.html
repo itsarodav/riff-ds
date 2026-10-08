@@ -10,37 +10,8 @@
 </section>
 
 <div class="toolbar" role="group" aria-label="Opciones de visualización">
-  <fieldset class="segmented">
-    <legend class="segmented__legend">Fondo</legend>
-    @for (option of backgrounds; track option[0]) {
-      <label class="segmented__option">
-        <input
-          type="radio"
-          name="background"
-          [value]="option[0]"
-          [checked]="background() === option[0]"
-          (change)="background.set(option[0])"
-        />
-        <span>{{ option[1].label }}</span>
-      </label>
-    }
-  </fieldset>
-
-  <fieldset class="segmented">
-    <legend class="segmented__legend">Copiar como</legend>
-    @for (option of formats; track option[0]) {
-      <label class="segmented__option">
-        <input
-          type="radio"
-          name="format"
-          [value]="option[0]"
-          [checked]="format() === option[0]"
-          (change)="format.set(option[0])"
-        />
-        <span>{{ option[1] }}</span>
-      </label>
-    }
-  </fieldset>
+  <pg-segmented legend="Vista previa" [options]="backgroundOptions" [(value)]="background" />
+  <pg-segmented legend="Copiar como" [options]="formatOptions" [(value)]="format" />
 
   <p class="legend">
     Contraste sobre <code>{{ bg().token }}</code>:
@@ -50,7 +21,8 @@
   </p>
 </div>
 
-<div class="panel" [attr.data-bg]="background()">
+<!-- La vista previa es un ámbito de tema: dentro, --pg-color-* toman los valores de ese tema. -->
+<div class="panel" [attr.data-theme]="background()">
   @for (family of families(); track family.name) {
     <section class="family" [attr.aria-labelledby]="'family-' + family.name">
       <header class="family__header">

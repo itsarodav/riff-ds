@@ -1,6 +1,6 @@
 :host {
   display: block;
-  max-width: var(--pg-content-max);
+  max-width: var(--pg-size-content-max);
 }
 
 code {
@@ -21,72 +21,9 @@ code {
   margin-bottom: var(--riff-space-4);
 }
 
-// Grupo de radios con aspecto de botones segmentados. La legend va encima.
-.segmented {
-  display: grid;
-  grid-auto-flow: column;
-  justify-content: start;
-  margin: 0;
-  padding: 0;
-  border: 0;
-
-  &__legend {
-    grid-column: 1 / -1;
-    margin-bottom: var(--riff-space-1);
-    padding: 0;
-    font-size: var(--riff-font-size-xs);
-    font-weight: var(--riff-font-weight-semibold);
-    color: var(--pg-text-muted);
-  }
-
-  &__option {
-    grid-row: 2;
-    position: relative;
-    cursor: pointer;
-
-    input {
-      position: absolute;
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    span {
-      display: block;
-      padding: calc(var(--riff-spacing-unit) * 1.5) var(--riff-space-3);
-      border: 1px solid var(--pg-border);
-      background: var(--pg-surface);
-      font-size: var(--riff-font-size-sm);
-      font-weight: var(--riff-font-weight-medium);
-    }
-
-    &:first-of-type span {
-      border-radius: var(--pg-radius-sm) 0 0 var(--pg-radius-sm);
-    }
-
-    &:last-of-type span {
-      border-radius: 0 var(--pg-radius-sm) var(--pg-radius-sm) 0;
-    }
-
-    & + & span {
-      border-left: 0;
-    }
-
-    input:checked + span {
-      background: var(--pg-accent);
-      border-color: var(--pg-accent);
-      color: var(--riff-neutral-10);
-    }
-
-    input:focus-visible + span {
-      outline: 2px solid var(--pg-focus);
-      outline-offset: 2px;
-    }
-  }
-}
-
 .legend {
   font-size: var(--riff-font-size-xs);
-  color: var(--pg-text-muted);
+  color: var(--pg-color-text-muted);
 }
 
 // ---- Insignias de contraste ----
@@ -100,47 +37,39 @@ code {
   vertical-align: 1px;
 
   &[data-level='AAA'] {
-    background: var(--riff-green-30);
-    color: var(--riff-green-130);
+    background: var(--pg-color-badge-aaa-bg);
+    color: var(--pg-color-badge-aaa-text);
   }
 
   &[data-level='AA'] {
-    background: var(--riff-blue-30);
-    color: var(--riff-blue-130);
+    background: var(--pg-color-badge-aa-bg);
+    color: var(--pg-color-badge-aa-text);
   }
 
   &[data-level='AA+'] {
-    background: var(--riff-yellow-30);
-    color: var(--riff-yellow-130);
+    background: var(--pg-color-badge-aa-large-bg);
+    color: var(--pg-color-badge-aa-large-text);
   }
 
   &[data-level='—'] {
-    background: var(--riff-neutral-30);
-    color: var(--riff-neutral-110);
+    background: var(--pg-color-badge-fail-bg);
+    color: var(--pg-color-badge-fail-text);
   }
 }
 
-// ---- Panel con el fondo elegido ----
+// ---- Vista previa ----
+// Lleva data-theme, así que estos --pg-color-* son los del tema que muestra,
+// no los del playground.
 .panel {
   container-type: inline-size;
   display: flex;
   flex-direction: column;
   gap: var(--riff-space-8);
   padding: var(--riff-space-4);
-  border: 1px solid var(--pg-border);
-  border-radius: var(--pg-radius);
-  background: var(--riff-sage-10);
-  color: var(--riff-sage-130);
-  --panel-muted: var(--riff-sage-100);
-  --panel-border: var(--riff-sage-40);
-
-  &[data-bg='dark'] {
-    background: var(--riff-sage-160);
-    border-color: var(--riff-sage-140);
-    color: var(--riff-sage-20);
-    --panel-muted: var(--riff-sage-60);
-    --panel-border: var(--riff-sage-130);
-  }
+  border: 1px solid var(--pg-color-border);
+  border-radius: var(--pg-radius-md);
+  background: var(--pg-color-bg);
+  color: var(--pg-color-text);
 
   @media (min-width: 48rem) {
     padding: var(--riff-space-6);
@@ -168,7 +97,7 @@ code {
 
   &__anchors {
     font-size: var(--riff-font-size-xs);
-    color: var(--panel-muted);
+    color: var(--pg-color-text-muted);
   }
 }
 
@@ -216,10 +145,11 @@ code {
     height: 3.5rem;
     margin-bottom: var(--riff-space-1);
     border-radius: var(--pg-radius-sm);
-    box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.06);
+    box-shadow: inset 0 0 0 1px var(--pg-color-border);
     transition: transform 150ms;
   }
 
+  // Depende del color del chip, no del tema: por eso usa primitivos.
   &__anchor {
     position: absolute;
     top: var(--riff-space-1);
@@ -242,7 +172,7 @@ code {
   &__contrast,
   &__note {
     font-size: var(--riff-font-size-2xs);
-    color: var(--panel-muted);
+    color: var(--pg-color-text-muted);
   }
 
   &__hex {
@@ -263,9 +193,9 @@ code {
   bottom: var(--riff-space-6);
   z-index: 30;
   padding: var(--riff-space-2) var(--riff-space-4);
-  border-radius: var(--pg-radius);
-  background: var(--riff-sage-150);
-  color: var(--riff-sage-10);
+  border-radius: var(--pg-radius-md);
+  background: var(--pg-color-inverse-bg);
+  color: var(--pg-color-inverse-text);
   font-size: var(--riff-font-size-sm);
   transform: translate(-50%, 1rem);
   opacity: 0;

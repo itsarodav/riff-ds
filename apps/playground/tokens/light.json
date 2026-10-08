@@ -1,0 +1,118 @@
+{
+  "pg": {
+    "color": {
+      "$type": "color",
+      "bg": {
+        "$value": "{sage.10}",
+        "$description": "Fondo de la página"
+      },
+      "surface": {
+        "$value": "{neutral.10}",
+        "$description": "Tarjetas y controles"
+      },
+      "surface-sunken": {
+        "$value": "{sage.20}",
+        "$description": "Sidebar y barra superior"
+      },
+      "surface-hover": {
+        "$value": "{sage.30}",
+        "$description": "Hover sobre superficies"
+      },
+      "text": {
+        "$value": "{sage.130}",
+        "$description": "Texto principal"
+      },
+      "text-muted": {
+        "$value": "{sage.100}",
+        "$description": "Texto secundario (≥4.5:1)"
+      },
+      "border": {
+        "$value": "{sage.40}",
+        "$description": "Bordes decorativos"
+      },
+      "accent": {
+        "$value": "{blue.100}",
+        "$description": "Enlaces, selección y acción"
+      },
+      "accent-soft": {
+        "$value": "{blue.20}",
+        "$description": "Fondo de elementos seleccionados"
+      },
+      "on-accent": {
+        "$value": "{neutral.10}",
+        "$description": "Texto sobre accent"
+      },
+      "focus": {
+        "$value": "{blue.90}",
+        "$description": "Anillo de foco"
+      },
+      "inverse-bg": {
+        "$value": "{sage.150}",
+        "$description": "Avisos (toast)"
+      },
+      "inverse-text": {
+        "$value": "{sage.10}",
+        "$description": "Texto sobre inverse-bg"
+      },
+      "code-bg": {
+        "$value": "{sage.150}",
+        "$description": "Bloques de código"
+      },
+      "code-border": {
+        "$value": "{sage.140}"
+      },
+      "code-text": {
+        "$value": "{sage.20}"
+      },
+      "code-muted": {
+        "$value": "{sage.60}"
+      },
+      "code-control": {
+        "$value": "{sage.120}",
+        "$description": "Borde del botón copiar"
+      },
+      "code-accent": {
+        "$value": "{blue.70}",
+        "$description": "Pestaña activa"
+      },
+      "scrim": {
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.0667,
+            0.0824,
+            0.0706
+          ],
+          "alpha": 0.4,
+          "hex": "#111512"
+        }
+      },
+      "badge": {
+        "aaa-bg": {
+          "$value": "{green.30}"
+        },
+        "aaa-text": {
+          "$value": "{green.130}"
+        },
+        "aa-bg": {
+          "$value": "{blue.30}"
+        },
+        "aa-text": {
+          "$value": "{blue.130}"
+        },
+        "aa-large-bg": {
+          "$value": "{yellow.30}"
+        },
+        "aa-large-text": {
+          "$value": "{yellow.130}"
+        },
+        "fail-bg": {
+          "$value": "{neutral.30}"
+        },
+        "fail-text": {
+          "$value": "{neutral.110}"
+        }
+      }
+    }
+  }
+}

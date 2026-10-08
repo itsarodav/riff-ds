@@ -4,8 +4,8 @@
   gap: var(--riff-space-8);
   overflow-y: auto;
   padding: var(--riff-space-6) var(--riff-space-4);
-  background: var(--pg-surface-sunken);
-  border-right: 1px solid var(--pg-border);
+  background: var(--pg-color-surface-sunken);
+  border-right: 1px solid var(--pg-color-border);
 }
 
 .brand {
@@ -24,7 +24,7 @@
 
   &__tag {
     font-size: var(--riff-font-size-xs);
-    color: var(--pg-text-muted);
+    color: var(--pg-color-text-muted);
   }
 
   @media (min-width: 64rem) {
@@ -44,7 +44,7 @@
     font-weight: var(--riff-font-weight-semibold);
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    color: var(--pg-text-muted);
+    color: var(--pg-color-text-muted);
   }
 
   &__list {
@@ -66,12 +66,12 @@
     text-decoration: none;
 
     &:hover {
-      background: var(--riff-sage-30);
+      background: var(--pg-color-surface-hover);
     }
 
     &.is-active {
-      background: var(--pg-accent-soft);
-      color: var(--pg-accent);
+      background: var(--pg-color-accent-soft);
+      color: var(--pg-color-accent);
       font-weight: var(--riff-font-weight-semibold);
     }
   }
@@ -79,7 +79,12 @@
   &__empty {
     padding-inline: var(--riff-space-3);
     font-size: var(--riff-font-size-sm);
-    color: var(--pg-text-muted);
+    color: var(--pg-color-text-muted);
     font-style: italic;
   }
+}
+
+.footer {
+  margin-top: auto;
+  padding-inline: var(--riff-space-3);
 }

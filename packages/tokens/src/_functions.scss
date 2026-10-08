@@ -1,0 +1,10 @@
+@use '../dist/scss/tokens' as *;
+
+// Cualquier múltiplo de la unidad de spacing, esté o no en la rampa:
+// space(5) → 1.25rem, space(5, px) → 20px.
+@function space($n, $unit: rem) {
+  @if $unit == px {
+    @return $n * $riff-spacing-unit-px;
+  }
+  @return $n * $riff-spacing-unit;
+}

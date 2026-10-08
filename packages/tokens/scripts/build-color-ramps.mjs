@@ -1,15 +1,21 @@
-// Genera src/primitives/_color.scss: rampas de 16 pasos (10…160) en OKLCH.
+// Genera tokens/primitives/color.json (DTCG): rampas de 16 pasos (10…160) en OKLCH.
+//
+// Es un generador de la FUENTE, no parte del build: mientras no haya Figma, las
+// rampas se definen aquí. Cuando Figma sea la fuente, este script se retira y
+// color.json lo escribe la sincronización con Figma. El build (Style Dictionary)
+// lee color.json igual en los dos casos.
 //
 // Todas las familias comparten la misma curva de luminosidad (L), así que el
 // mismo paso tiene el mismo peso visual en cualquier color. Los anclas son
 // colores reales de riffims y se respetan exactos en su paso; la curva se
 // deforma suavemente a su alrededor.
 //
-// Uso: node packages/tokens/scripts/build-color-ramps.mjs [--report]
+// Uso: npm run generate:colors -w @riff-ds/tokens  (añade -- --report para ver contrastes)
 
-import { writeFileSync } from 'node:fs';
+import { mkdirSync, writeFileSync } from 'node:fs';
+import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { contrast, hexToOklch, oklchToHex } from './oklch.mjs';
+import { contrast, hexToOklch, hexToRgb, oklchToHex } from './oklch.mjs';
 
 const STEPS = 16;
 const stepName = (i) => (i + 1) * 10; // índice 0…15 → 10…160
@@ -102,50 +108,34 @@ function buildRamp({ anchors, chroma, hue }) {
 
 const ramps = Object.fromEntries(Object.entries(FAMILIES).map(([name, f]) => [name, buildRamp(f)]));
 
-// ---- Salida SCSS ----
-const lines = [
-  '// ⚠️ GENERADO por scripts/build-color-ramps.mjs — no editar a mano.',
-  '// Rampas de 16 pasos: 10 (más claro) … 160 (más oscuro), misma luminosidad',
-  '// perceptual (OKLCH) en todas las familias. Anclas = colores reales de riffims.',
-  '',
-];
+// ---- Salida: JSON DTCG (fuente de verdad que lee Style Dictionary) ----
+const colorValue = (hex) => ({
+  colorSpace: 'srgb',
+  components: hexToRgb(hex).map((c) => Math.round(c * 10000) / 10000),
+  hex,
+});
+
+// Nota: sin $description en la raíz; Style Dictionary fusiona todos los
+// archivos y varias raíces con $description colisionan.
+const json = {};
 for (const [name, ramp] of Object.entries(ramps)) {
-  const anchors = FAMILIES[name].anchors;
-  lines.push(`// ---- ${name} ----`);
+  json[name] = { $type: 'color', $description: `Rampa ${name}: generada por build-color-ramps.mjs, no editar a mano.` };
   ramp.forEach((hex, i) => {
     const step = stepName(i);
-    lines.push(`$riff-${name}-${step}: ${hex};${anchors[step] ? ' // ancla riffims' : ''}`);
+    json[name][step] = { $value: colorValue(hex) };
+    if (FAMILIES[name].anchors[step]) {
+      json[name][step].$extensions = { 'com.riff-ds': { anchor: true } };
+    }
   });
-  lines.push('');
 }
-lines.push('// ---- Fuera de rampa ----');
-for (const [name, { hex, note }] of Object.entries(EXTRAS)) lines.push(`$riff-${name}: ${hex}; // ${note}`);
-lines.push('', '// Mapa para generar CSS custom properties y para riff.color(familia, paso).', '$riff-colors: (');
-for (const [name, ramp] of Object.entries(ramps)) {
-  lines.push(`  '${name}': (`);
-  ramp.forEach((_, i) => lines.push(`    ${stepName(i)}: $riff-${name}-${stepName(i)},`));
-  lines.push('  ),');
+for (const [name, { hex, note }] of Object.entries(EXTRAS)) {
+  json[name] = { $type: 'color', $value: colorValue(hex), $description: note };
 }
-lines.push(');', '', '$riff-color-extras: (');
-for (const name of Object.keys(EXTRAS)) lines.push(`  '${name}': $riff-${name},`);
-lines.push(');', '');
 
-const out = fileURLToPath(new URL('../src/primitives/_color.scss', import.meta.url));
-writeFileSync(out, lines.join('\n'));
+const out = fileURLToPath(new URL('../tokens/primitives/color.json', import.meta.url));
+mkdirSync(dirname(out), { recursive: true });
+writeFileSync(out, JSON.stringify(json, null, 2) + '\n');
 console.log(`✔ ${out}`);
-
-// ---- Salida JSON (para el playground y otras herramientas) ----
-const json = {
-  $generated: 'scripts/build-color-ramps.mjs — no editar a mano',
-  families: Object.entries(ramps).map(([name, ramp]) => ({
-    name,
-    steps: ramp.map((hex, i) => ({ step: stepName(i), hex, anchor: Boolean(FAMILIES[name].anchors[stepName(i)]) })),
-  })),
-  extras: Object.entries(EXTRAS).map(([name, extra]) => ({ name, ...extra })),
-};
-const jsonOut = fileURLToPath(new URL('../src/colors.json', import.meta.url));
-writeFileSync(jsonOut, JSON.stringify(json, null, 2) + '\n');
-console.log(`✔ ${jsonOut}`);
 
 // ---- Informe opcional: contraste de cada paso sobre los fondos light y dark ----
 if (process.argv.includes('--report')) {

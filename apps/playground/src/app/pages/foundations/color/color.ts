@@ -1,44 +1,52 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, inject, linkedSignal, signal } from '@angular/core';
 import colors from '@riff-ds/tokens/colors.json';
 
 import { copyToClipboard } from '../../../shared/clipboard';
 import { CodeBlock, CodeSnippet } from '../../../shared/code-block/code-block';
 import { contrastRatio, wcagLevel } from '../../../shared/contrast';
 import { PageHeader } from '../../../shared/page-header/page-header';
+import { Segmented, SegmentedOption } from '../../../shared/segmented/segmented';
+import { ResolvedTheme, ThemeService } from '../../../theme/theme';
 
-type Background = 'light' | 'dark';
 type CopyFormat = 'css' | 'scss' | 'hex';
 
 const sage = colors.families.find((f) => f.name === 'sage')!.steps;
 
-/** Fondos de referencia para medir contraste: los extremos de la rampa sage. */
-const BACKGROUNDS: Record<Background, { label: string; token: string; hex: string }> = {
-  light: { label: 'Claro', token: 'sage-10', hex: sage[0].hex },
-  dark: { label: 'Oscuro', token: 'sage-160', hex: sage[sage.length - 1].hex },
-};
-
-const FORMATS: Record<CopyFormat, string> = {
-  css: 'CSS var',
-  scss: 'SCSS',
-  hex: 'HEX',
+/**
+ * Fondo de la vista previa en cada tema. Coincide con --pg-color-bg de
+ * light.json / dark.json; aquí hace falta el hex para calcular el contraste.
+ */
+const PREVIEW_BG: Record<ResolvedTheme, { token: string; hex: string }> = {
+  light: { token: 'sage-10', hex: sage[0].hex },
+  dark: { token: 'sage-160', hex: sage[sage.length - 1].hex },
 };
 
 @Component({
   selector: 'pg-color-page',
-  imports: [PageHeader, CodeBlock],
+  imports: [PageHeader, CodeBlock, Segmented],
   templateUrl: './color.html',
   styleUrl: './color.scss',
 })
 export class ColorPage {
-  protected readonly backgrounds = Object.entries(BACKGROUNDS) as [Background, (typeof BACKGROUNDS)[Background]][];
-  protected readonly formats = Object.entries(FORMATS) as [CopyFormat, string][];
+  private readonly theme = inject(ThemeService);
 
-  protected readonly background = signal<Background>('light');
+  protected readonly backgroundOptions: SegmentedOption<ResolvedTheme>[] = [
+    { value: 'light', label: 'Claro' },
+    { value: 'dark', label: 'Oscuro' },
+  ];
+  protected readonly formatOptions: SegmentedOption<CopyFormat>[] = [
+    { value: 'css', label: 'CSS var' },
+    { value: 'scss', label: 'SCSS' },
+    { value: 'hex', label: 'HEX' },
+  ];
+
+  /** Tema de la vista previa: sigue al del playground hasta que se cambia a mano. */
+  protected readonly background = linkedSignal(() => this.theme.resolved());
   protected readonly format = signal<CopyFormat>('css');
   protected readonly lastCopied = signal('');
   private toastTimer?: ReturnType<typeof setTimeout>;
 
-  protected readonly bg = computed(() => BACKGROUNDS[this.background()]);
+  protected readonly bg = computed(() => PREVIEW_BG[this.background()]);
 
   protected readonly families = computed(() => {
     const bgHex = this.bg().hex;
@@ -66,6 +74,10 @@ export class ColorPage {
     {
       label: 'SCSS',
       code: `@use '@riff-ds/tokens' as riff;\n\n.button {\n  background: riff.$riff-blue-100;\n  color: riff.$riff-sage-10;\n}`,
+    },
+    {
+      label: 'DTCG',
+      code: `// packages/tokens/tokens/primitives/color.json\n"blue": {\n  "$type": "color",\n  "100": {\n    "$value": { "colorSpace": "srgb", "components": [0.1765, 0.4078, 0.7098], "hex": "#2D68B5" }\n  }\n}`,
     },
   ];
 

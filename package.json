@@ -3,11 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "tokens": "npm run build -w @riff-ds/tokens && node apps/playground/scripts/build-theme.mjs",
+    "prestart": "npm run tokens",
     "start": "ng serve playground",
+    "prebuild": "npm run tokens",
     "build": "ng build playground",
     "watch": "ng build playground --watch --configuration development",
-    "test": "ng test playground",
-    "build:tokens": "npm run build -w @riff-ds/tokens"
+    "test": "ng test playground"
   },
   "private": true,
   "packageManager": "npm@11.12.1",

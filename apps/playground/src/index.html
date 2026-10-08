@@ -10,6 +10,13 @@
       content="Playground de riff-ds: foundations y componentes del design system de Riffims."
     />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <!-- Aplica el tema guardado antes de pintar, para evitar un parpadeo (ver theme/theme.ts). -->
+    <script>
+      try {
+        var theme = localStorage.getItem('pg-theme');
+        if (theme === 'light' || theme === 'dark') document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {}
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

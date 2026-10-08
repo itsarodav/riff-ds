@@ -1,6 +1,8 @@
-// Punto de entrada SCSS de @riff-ds/tokens.
+// API SCSS de @riff-ds/tokens.
 // Uso: @use '@riff-ds/tokens' as riff;  →  riff.$riff-blue-100, riff.space(5)
-@forward 'primitives';
-@forward 'semantic';
-@forward 'component';
+//
+// Las variables salen de dist/scss/_tokens.scss, que genera Style Dictionary a
+// partir de tokens/**/*.json (npm run build -w @riff-ds/tokens).
+@forward '../dist/scss/tokens';
+@forward 'functions';
 @forward 'css-vars';
