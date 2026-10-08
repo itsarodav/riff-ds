@@ -1,0 +1,79 @@
+// Spacing: multiplicador de 4px (como Tailwind). space-4 = 4 × 4px = 16px.
+// Dos rampas con los mismos pasos: rem (por defecto) y px (sufijo -px).
+// Usa rem siempre que puedas; px solo cuando no deba escalar con el tamaño de
+// fuente del usuario (bordes, ajustes ópticos…).
+// Pasos = los que usa riffims hoy (2, 4, 8, 12, 16, 24, 32, 48, 64, 96, 128, 144px).
+
+$riff-spacing-unit: 0.25rem; // 4px
+$riff-spacing-unit-px: 4px;
+
+// ---- rem ----
+$riff-space-0: 0;
+$riff-space-0-5: 0.125rem; // 2px
+$riff-space-1: 0.25rem;    // 4px
+$riff-space-2: 0.5rem;     // 8px
+$riff-space-3: 0.75rem;    // 12px
+$riff-space-4: 1rem;       // 16px
+$riff-space-6: 1.5rem;     // 24px
+$riff-space-8: 2rem;       // 32px
+$riff-space-12: 3rem;      // 48px
+$riff-space-16: 4rem;      // 64px
+$riff-space-24: 6rem;      // 96px
+$riff-space-32: 8rem;      // 128px
+$riff-space-36: 9rem;      // 144px
+
+// ---- px ----
+$riff-space-0-px: 0;
+$riff-space-0-5-px: 2px;
+$riff-space-1-px: 4px;
+$riff-space-2-px: 8px;
+$riff-space-3-px: 12px;
+$riff-space-4-px: 16px;
+$riff-space-6-px: 24px;
+$riff-space-8-px: 32px;
+$riff-space-12-px: 48px;
+$riff-space-16-px: 64px;
+$riff-space-24-px: 96px;
+$riff-space-32-px: 128px;
+$riff-space-36-px: 144px;
+
+// Claves = nombre del paso en el token (0-5 → '0-5').
+$riff-spaces: (
+  '0': $riff-space-0,
+  '0-5': $riff-space-0-5,
+  '1': $riff-space-1,
+  '2': $riff-space-2,
+  '3': $riff-space-3,
+  '4': $riff-space-4,
+  '6': $riff-space-6,
+  '8': $riff-space-8,
+  '12': $riff-space-12,
+  '16': $riff-space-16,
+  '24': $riff-space-24,
+  '32': $riff-space-32,
+  '36': $riff-space-36,
+);
+
+$riff-spaces-px: (
+  '0': $riff-space-0-px,
+  '0-5': $riff-space-0-5-px,
+  '1': $riff-space-1-px,
+  '2': $riff-space-2-px,
+  '3': $riff-space-3-px,
+  '4': $riff-space-4-px,
+  '6': $riff-space-6-px,
+  '8': $riff-space-8-px,
+  '12': $riff-space-12-px,
+  '16': $riff-space-16-px,
+  '24': $riff-space-24-px,
+  '32': $riff-space-32-px,
+  '36': $riff-space-36-px,
+);
+
+// Cualquier múltiplo, esté o no en la rampa: space(5) → 1.25rem, space(5, px) → 20px.
+@function space($n, $unit: rem) {
+  @if $unit == px {
+    @return $n * $riff-spacing-unit-px;
+  }
+  @return $n * $riff-spacing-unit;
+}

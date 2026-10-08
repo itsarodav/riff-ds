@@ -1,0 +1,29 @@
+{
+  "name": "@riff-ds/tokens",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Design tokens de riff-ds: SCSS + CSS custom properties, independientes del framework.",
+  "sass": "src/_index.scss",
+  "style": "dist/tokens.css",
+  "exports": {
+    ".": {
+      "sass": "./src/_index.scss",
+      "style": "./dist/tokens.css",
+      "default": "./dist/tokens.css"
+    },
+    "./tokens.css": "./dist/tokens.css",
+    "./scss": "./src/_index.scss"
+  },
+  "files": [
+    "src",
+    "dist"
+  ],
+  "scripts": {
+    "build:colors": "node scripts/build-color-ramps.mjs",
+    "build:css": "sass --no-source-map src/tokens.scss dist/tokens.css",
+    "build": "npm run build:colors && npm run build:css"
+  },
+  "devDependencies": {
+    "sass": "^1.101.0"
+  }
+}

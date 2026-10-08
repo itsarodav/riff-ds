@@ -1,0 +1,6 @@
+// Punto de entrada SCSS de @riff-ds/tokens.
+// Uso: @use '@riff-ds/tokens' as riff;  →  riff.$riff-blue-100, riff.space(5)
+@forward 'primitives';
+@forward 'semantic';
+@forward 'component';
+@forward 'css-vars';

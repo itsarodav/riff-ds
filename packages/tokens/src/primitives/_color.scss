@@ -1,0 +1,302 @@
+// ⚠️ GENERADO por scripts/build-color-ramps.mjs — no editar a mano.
+// Rampas de 16 pasos: 10 (más claro) … 160 (más oscuro), misma luminosidad
+// perceptual (OKLCH) en todas las familias. Anclas = colores reales de riffims.
+
+// ---- sage ----
+$riff-sage-10: #F2F8F4; // ancla riffims
+$riff-sage-20: #EEF4F0; // ancla riffims
+$riff-sage-30: #E2E8E3;
+$riff-sage-40: #D3DAD5; // ancla riffims
+$riff-sage-50: #C1C9C2;
+$riff-sage-60: #ADB7AF;
+$riff-sage-70: #99A49B;
+$riff-sage-80: #859188; // ancla riffims
+$riff-sage-90: #717B73;
+$riff-sage-100: #5D665F;
+$riff-sage-110: #4C544E;
+$riff-sage-120: #3E443F;
+$riff-sage-130: #333532; // ancla riffims
+$riff-sage-140: #252926;
+$riff-sage-150: #1A1E1B;
+$riff-sage-160: #111512;
+
+// ---- neutral ----
+$riff-neutral-10: #FAFAFA;
+$riff-neutral-20: #F2F2F2;
+$riff-neutral-30: #E8E8E8; // ancla riffims
+$riff-neutral-40: #DBDBDB;
+$riff-neutral-50: #CBCBCB;
+$riff-neutral-60: #B9B9B9;
+$riff-neutral-70: #A7A7A7;
+$riff-neutral-80: #959595;
+$riff-neutral-90: #7E7E7E;
+$riff-neutral-100: #696969;
+$riff-neutral-110: #575757;
+$riff-neutral-120: #464646;
+$riff-neutral-130: #383838;
+$riff-neutral-140: #2A2A2A;
+$riff-neutral-150: #1E1E1E;
+$riff-neutral-160: #141414;
+
+// ---- blue ----
+$riff-blue-10: #F7FAFF;
+$riff-blue-20: #EBF3FF;
+$riff-blue-30: #DAE9FF;
+$riff-blue-40: #C4DDFF;
+$riff-blue-50: #A9CDFF;
+$riff-blue-60: #8EBCFA;
+$riff-blue-70: #74A9F1;
+$riff-blue-80: #5C96E4;
+$riff-blue-90: #447FCE;
+$riff-blue-100: #2D68B5; // ancla riffims
+$riff-blue-110: #1E559D;
+$riff-blue-120: #114585;
+$riff-blue-130: #07366F;
+$riff-blue-140: #022858;
+$riff-blue-150: #001C43;
+$riff-blue-160: #001231;
+
+// ---- orange ----
+$riff-orange-10: #FFF8F7;
+$riff-orange-20: #FFEEEA;
+$riff-orange-30: #FFE0D7;
+$riff-orange-40: #FFCEC0;
+$riff-orange-50: #FFB6A1;
+$riff-orange-60: #FF9A7E;
+$riff-orange-70: #FF7954;
+$riff-orange-80: #F75828; // ancla riffims
+$riff-orange-90: #DC3F00;
+$riff-orange-100: #B73300;
+$riff-orange-110: #992900;
+$riff-orange-120: #7E2000;
+$riff-orange-130: #661800;
+$riff-orange-140: #4F1000;
+$riff-orange-150: #3C0A00;
+$riff-orange-160: #2B0500;
+
+// ---- green ----
+$riff-green-10: #F3FEF4;
+$riff-green-20: #E5FBE8;
+$riff-green-30: #D2F5D7;
+$riff-green-40: #BCEEC4;
+$riff-green-50: #A0E3AC;
+$riff-green-60: #81D692;
+$riff-green-70: #61C879;
+$riff-green-80: #3FB961;
+$riff-green-90: #16A34A; // ancla riffims
+$riff-green-100: #00883A;
+$riff-green-110: #00712F;
+$riff-green-120: #005C25;
+$riff-green-130: #00491C;
+$riff-green-140: #003713;
+$riff-green-150: #00270B;
+$riff-green-160: #001A06;
+
+// ---- red ----
+$riff-red-10: #FFF8F7;
+$riff-red-20: #FFEDEB;
+$riff-red-30: #FFDED9;
+$riff-red-40: #FFCBC4;
+$riff-red-50: #FFB2A8;
+$riff-red-60: #FF9488;
+$riff-red-70: #FB7467;
+$riff-red-80: #ED594E;
+$riff-red-90: #D43C35;
+$riff-red-100: #B91C1C; // ancla riffims
+$riff-red-110: #A0000B;
+$riff-red-120: #840007;
+$riff-red-130: #6C0005;
+$riff-red-140: #540003;
+$riff-red-150: #400001;
+$riff-red-160: #2F0001;
+
+// ---- yellow ----
+$riff-yellow-10: #FFFAEC;
+$riff-yellow-20: #FFF3D4; // ancla riffims
+$riff-yellow-30: #FEE9B7;
+$riff-yellow-40: #FBDC95;
+$riff-yellow-50: #F6CB68;
+$riff-yellow-60: #F0B723; // ancla riffims
+$riff-yellow-70: #DF9F00;
+$riff-yellow-80: #CA8900;
+$riff-yellow-90: #AD7114; // ancla riffims
+$riff-yellow-100: #925C00;
+$riff-yellow-110: #794C00;
+$riff-yellow-120: #633E00;
+$riff-yellow-130: #503100;
+$riff-yellow-140: #3D2400;
+$riff-yellow-150: #2D1900;
+$riff-yellow-160: #1F1000;
+
+// ---- purple ----
+$riff-purple-10: #FAF9FF;
+$riff-purple-20: #F4F0FF;
+$riff-purple-30: #EAE3FF;
+$riff-purple-40: #DFD3FF;
+$riff-purple-50: #D1BFFF;
+$riff-purple-60: #C2A8FF;
+$riff-purple-70: #B38FFF;
+$riff-purple-80: #A573FF;
+$riff-purple-90: #9154F0;
+$riff-purple-100: #7C3AD6; // ancla riffims
+$riff-purple-110: #6927BB;
+$riff-purple-120: #5716A0;
+$riff-purple-130: #470886;
+$riff-purple-140: #37006B;
+$riff-purple-150: #280051;
+$riff-purple-160: #1B003B;
+
+// ---- Fuera de rampa ----
+$riff-orange-logo: #FF5E2D; // logo y degradados, pendiente unificar con orange-80
+
+// Mapa para generar CSS custom properties y para riff.color(familia, paso).
+$riff-colors: (
+  'sage': (
+    10: $riff-sage-10,
+    20: $riff-sage-20,
+    30: $riff-sage-30,
+    40: $riff-sage-40,
+    50: $riff-sage-50,
+    60: $riff-sage-60,
+    70: $riff-sage-70,
+    80: $riff-sage-80,
+    90: $riff-sage-90,
+    100: $riff-sage-100,
+    110: $riff-sage-110,
+    120: $riff-sage-120,
+    130: $riff-sage-130,
+    140: $riff-sage-140,
+    150: $riff-sage-150,
+    160: $riff-sage-160,
+  ),
+  'neutral': (
+    10: $riff-neutral-10,
+    20: $riff-neutral-20,
+    30: $riff-neutral-30,
+    40: $riff-neutral-40,
+    50: $riff-neutral-50,
+    60: $riff-neutral-60,
+    70: $riff-neutral-70,
+    80: $riff-neutral-80,
+    90: $riff-neutral-90,
+    100: $riff-neutral-100,
+    110: $riff-neutral-110,
+    120: $riff-neutral-120,
+    130: $riff-neutral-130,
+    140: $riff-neutral-140,
+    150: $riff-neutral-150,
+    160: $riff-neutral-160,
+  ),
+  'blue': (
+    10: $riff-blue-10,
+    20: $riff-blue-20,
+    30: $riff-blue-30,
+    40: $riff-blue-40,
+    50: $riff-blue-50,
+    60: $riff-blue-60,
+    70: $riff-blue-70,
+    80: $riff-blue-80,
+    90: $riff-blue-90,
+    100: $riff-blue-100,
+    110: $riff-blue-110,
+    120: $riff-blue-120,
+    130: $riff-blue-130,
+    140: $riff-blue-140,
+    150: $riff-blue-150,
+    160: $riff-blue-160,
+  ),
+  'orange': (
+    10: $riff-orange-10,
+    20: $riff-orange-20,
+    30: $riff-orange-30,
+    40: $riff-orange-40,
+    50: $riff-orange-50,
+    60: $riff-orange-60,
+    70: $riff-orange-70,
+    80: $riff-orange-80,
+    90: $riff-orange-90,
+    100: $riff-orange-100,
+    110: $riff-orange-110,
+    120: $riff-orange-120,
+    130: $riff-orange-130,
+    140: $riff-orange-140,
+    150: $riff-orange-150,
+    160: $riff-orange-160,
+  ),
+  'green': (
+    10: $riff-green-10,
+    20: $riff-green-20,
+    30: $riff-green-30,
+    40: $riff-green-40,
+    50: $riff-green-50,
+    60: $riff-green-60,
+    70: $riff-green-70,
+    80: $riff-green-80,
+    90: $riff-green-90,
+    100: $riff-green-100,
+    110: $riff-green-110,
+    120: $riff-green-120,
+    130: $riff-green-130,
+    140: $riff-green-140,
+    150: $riff-green-150,
+    160: $riff-green-160,
+  ),
+  'red': (
+    10: $riff-red-10,
+    20: $riff-red-20,
+    30: $riff-red-30,
+    40: $riff-red-40,
+    50: $riff-red-50,
+    60: $riff-red-60,
+    70: $riff-red-70,
+    80: $riff-red-80,
+    90: $riff-red-90,
+    100: $riff-red-100,
+    110: $riff-red-110,
+    120: $riff-red-120,
+    130: $riff-red-130,
+    140: $riff-red-140,
+    150: $riff-red-150,
+    160: $riff-red-160,
+  ),
+  'yellow': (
+    10: $riff-yellow-10,
+    20: $riff-yellow-20,
+    30: $riff-yellow-30,
+    40: $riff-yellow-40,
+    50: $riff-yellow-50,
+    60: $riff-yellow-60,
+    70: $riff-yellow-70,
+    80: $riff-yellow-80,
+    90: $riff-yellow-90,
+    100: $riff-yellow-100,
+    110: $riff-yellow-110,
+    120: $riff-yellow-120,
+    130: $riff-yellow-130,
+    140: $riff-yellow-140,
+    150: $riff-yellow-150,
+    160: $riff-yellow-160,
+  ),
+  'purple': (
+    10: $riff-purple-10,
+    20: $riff-purple-20,
+    30: $riff-purple-30,
+    40: $riff-purple-40,
+    50: $riff-purple-50,
+    60: $riff-purple-60,
+    70: $riff-purple-70,
+    80: $riff-purple-80,
+    90: $riff-purple-90,
+    100: $riff-purple-100,
+    110: $riff-purple-110,
+    120: $riff-purple-120,
+    130: $riff-purple-130,
+    140: $riff-purple-140,
+    150: $riff-purple-150,
+    160: $riff-purple-160,
+  ),
+);
+
+$riff-color-extras: (
+  'orange-logo': $riff-orange-logo,
+);
