@@ -1,0 +1,37 @@
+<div class="header">
+  @if (snippets().length > 1) {
+    <div class="tabs" role="tablist" [attr.aria-label]="label()">
+      @for (snippet of snippets(); track snippet.label; let i = $index) {
+        <button
+          type="button"
+          role="tab"
+          class="tab"
+          [id]="id + '-tab-' + i"
+          [attr.aria-selected]="i === selected()"
+          [attr.aria-controls]="id + '-panel'"
+          [tabindex]="i === selected() ? 0 : -1"
+          (click)="select(i)"
+          (keydown)="onTabKeydown($event, i)"
+        >
+          {{ snippet.label }}
+        </button>
+      }
+    </div>
+  } @else {
+    <span class="single-label">{{ current().label }}</span>
+  }
+
+  <button type="button" class="copy" (click)="copy()">
+    {{ copied() ? 'Copiado' : 'Copiar' }}
+  </button>
+</div>
+
+<pre
+  class="code"
+  [id]="id + '-panel'"
+  [attr.role]="snippets().length > 1 ? 'tabpanel' : null"
+  [attr.aria-labelledby]="snippets().length > 1 ? id + '-tab-' + selected() : null"
+  tabindex="0"
+><code>{{ current().code }}</code></pre>
+
+<span class="pg-sr-only" aria-live="polite">{{ copied() ? 'Código copiado' : '' }}</span>

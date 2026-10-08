@@ -1,0 +1,692 @@
+{
+  "$generated": "scripts/build-color-ramps.mjs — no editar a mano",
+  "families": [
+    {
+      "name": "sage",
+      "steps": [
+        {
+          "step": 10,
+          "hex": "#F2F8F4",
+          "anchor": true
+        },
+        {
+          "step": 20,
+          "hex": "#EEF4F0",
+          "anchor": true
+        },
+        {
+          "step": 30,
+          "hex": "#E2E8E3",
+          "anchor": false
+        },
+        {
+          "step": 40,
+          "hex": "#D3DAD5",
+          "anchor": true
+        },
+        {
+          "step": 50,
+          "hex": "#C1C9C2",
+          "anchor": false
+        },
+        {
+          "step": 60,
+          "hex": "#ADB7AF",
+          "anchor": false
+        },
+        {
+          "step": 70,
+          "hex": "#99A49B",
+          "anchor": false
+        },
+        {
+          "step": 80,
+          "hex": "#859188",
+          "anchor": true
+        },
+        {
+          "step": 90,
+          "hex": "#717B73",
+          "anchor": false
+        },
+        {
+          "step": 100,
+          "hex": "#5D665F",
+          "anchor": false
+        },
+        {
+          "step": 110,
+          "hex": "#4C544E",
+          "anchor": false
+        },
+        {
+          "step": 120,
+          "hex": "#3E443F",
+          "anchor": false
+        },
+        {
+          "step": 130,
+          "hex": "#333532",
+          "anchor": true
+        },
+        {
+          "step": 140,
+          "hex": "#252926",
+          "anchor": false
+        },
+        {
+          "step": 150,
+          "hex": "#1A1E1B",
+          "anchor": false
+        },
+        {
+          "step": 160,
+          "hex": "#111512",
+          "anchor": false
+        }
+      ]
+    },
+    {
+      "name": "neutral",
+      "steps": [
+        {
+          "step": 10,
+          "hex": "#FAFAFA",
+          "anchor": false
+        },
+        {
+          "step": 20,
+          "hex": "#F2F2F2",
+          "anchor": false
+        },
+        {
+          "step": 30,
+          "hex": "#E8E8E8",
+          "anchor": true
+        },
+        {
+          "step": 40,
+          "hex": "#DBDBDB",
+          "anchor": false
+        },
+        {
+          "step": 50,
+          "hex": "#CBCBCB",
+          "anchor": false
+        },
+        {
+          "step": 60,
+          "hex": "#B9B9B9",
+          "anchor": false
+        },
+        {
+          "step": 70,
+          "hex": "#A7A7A7",
+          "anchor": false
+        },
+        {
+          "step": 80,
+          "hex": "#959595",
+          "anchor": false
+        },
+        {
+          "step": 90,
+          "hex": "#7E7E7E",
+          "anchor": false
+        },
+        {
+          "step": 100,
+          "hex": "#696969",
+          "anchor": false
+        },
+        {
+          "step": 110,
+          "hex": "#575757",
+          "anchor": false
+        },
+        {
+          "step": 120,
+          "hex": "#464646",
+          "anchor": false
+        },
+        {
+          "step": 130,
+          "hex": "#383838",
+          "anchor": false
+        },
+        {
+          "step": 140,
+          "hex": "#2A2A2A",
+          "anchor": false
+        },
+        {
+          "step": 150,
+          "hex": "#1E1E1E",
+          "anchor": false
+        },
+        {
+          "step": 160,
+          "hex": "#141414",
+          "anchor": false
+        }
+      ]
+    },
+    {
+      "name": "blue",
+      "steps": [
+        {
+          "step": 10,
+          "hex": "#F7FAFF",
+          "anchor": false
+        },
+        {
+          "step": 20,
+          "hex": "#EBF3FF",
+          "anchor": false
+        },
+        {
+          "step": 30,
+          "hex": "#DAE9FF",
+          "anchor": false
+        },
+        {
+          "step": 40,
+          "hex": "#C4DDFF",
+          "anchor": false
+        },
+        {
+          "step": 50,
+          "hex": "#A9CDFF",
+          "anchor": false
+        },
+        {
+          "step": 60,
+          "hex": "#8EBCFA",
+          "anchor": false
+        },
+        {
+          "step": 70,
+          "hex": "#74A9F1",
+          "anchor": false
+        },
+        {
+          "step": 80,
+          "hex": "#5C96E4",
+          "anchor": false
+        },
+        {
+          "step": 90,
+          "hex": "#447FCE",
+          "anchor": false
+        },
+        {
+          "step": 100,
+          "hex": "#2D68B5",
+          "anchor": true
+        },
+        {
+          "step": 110,
+          "hex": "#1E559D",
+          "anchor": false
+        },
+        {
+          "step": 120,
+          "hex": "#114585",
+          "anchor": false
+        },
+        {
+          "step": 130,
+          "hex": "#07366F",
+          "anchor": false
+        },
+        {
+          "step": 140,
+          "hex": "#022858",
+          "anchor": false
+        },
+        {
+          "step": 150,
+          "hex": "#001C43",
+          "anchor": false
+        },
+        {
+          "step": 160,
+          "hex": "#001231",
+          "anchor": false
+        }
+      ]
+    },
+    {
+      "name": "orange",
+      "steps": [
+        {
+          "step": 10,
+          "hex": "#FFF8F7",
+          "anchor": false
+        },
+        {
+          "step": 20,
+          "hex": "#FFEEEA",
+          "anchor": false
+        },
+        {
+          "step": 30,
+          "hex": "#FFE0D7",
+          "anchor": false
+        },
+        {
+          "step": 40,
+          "hex": "#FFCEC0",
+          "anchor": false
+        },
+        {
+          "step": 50,
+          "hex": "#FFB6A1",
+          "anchor": false
+        },
+        {
+          "step": 60,
+          "hex": "#FF9A7E",
+          "anchor": false
+        },
+        {
+          "step": 70,
+          "hex": "#FF7954",
+          "anchor": false
+        },
+        {
+          "step": 80,
+          "hex": "#F75828",
+          "anchor": true
+        },
+        {
+          "step": 90,
+          "hex": "#DC3F00",
+          "anchor": false
+        },
+        {
+          "step": 100,
+          "hex": "#B73300",
+          "anchor": false
+        },
+        {
+          "step": 110,
+          "hex": "#992900",
+          "anchor": false
+        },
+        {
+          "step": 120,
+          "hex": "#7E2000",
+          "anchor": false
+        },
+        {
+          "step": 130,
+          "hex": "#661800",
+          "anchor": false
+        },
+        {
+          "step": 140,
+          "hex": "#4F1000",
+          "anchor": false
+        },
+        {
+          "step": 150,
+          "hex": "#3C0A00",
+          "anchor": false
+        },
+        {
+          "step": 160,
+          "hex": "#2B0500",
+          "anchor": false
+        }
+      ]
+    },
+    {
+      "name": "green",
+      "steps": [
+        {
+          "step": 10,
+          "hex": "#F3FEF4",
+          "anchor": false
+        },
+        {
+          "step": 20,
+          "hex": "#E5FBE8",
+          "anchor": false
+        },
+        {
+          "step": 30,
+          "hex": "#D2F5D7",
+          "anchor": false
+        },
+        {
+          "step": 40,
+          "hex": "#BCEEC4",
+          "anchor": false
+        },
+        {
+          "step": 50,
+          "hex": "#A0E3AC",
+          "anchor": false
+        },
+        {
+          "step": 60,
+          "hex": "#81D692",
+          "anchor": false
+        },
+        {
+          "step": 70,
+          "hex": "#61C879",
+          "anchor": false
+        },
+        {
+          "step": 80,
+          "hex": "#3FB961",
+          "anchor": false
+        },
+        {
+          "step": 90,
+          "hex": "#16A34A",
+          "anchor": true
+        },
+        {
+          "step": 100,
+          "hex": "#00883A",
+          "anchor": false
+        },
+        {
+          "step": 110,
+          "hex": "#00712F",
+          "anchor": false
+        },
+        {
+          "step": 120,
+          "hex": "#005C25",
+          "anchor": false
+        },
+        {
+          "step": 130,
+          "hex": "#00491C",
+          "anchor": false
+        },
+        {
+          "step": 140,
+          "hex": "#003713",
+          "anchor": false
+        },
+        {
+          "step": 150,
+          "hex": "#00270B",
+          "anchor": false
+        },
+        {
+          "step": 160,
+          "hex": "#001A06",
+          "anchor": false
+        }
+      ]
+    },
+    {
+      "name": "red",
+      "steps": [
+        {
+          "step": 10,
+          "hex": "#FFF8F7",
+          "anchor": false
+        },
+        {
+          "step": 20,
+          "hex": "#FFEDEB",
+          "anchor": false
+        },
+        {
+          "step": 30,
+          "hex": "#FFDED9",
+          "anchor": false
+        },
+        {
+          "step": 40,
+          "hex": "#FFCBC4",
+          "anchor": false
+        },
+        {
+          "step": 50,
+          "hex": "#FFB2A8",
+          "anchor": false
+        },
+        {
+          "step": 60,
+          "hex": "#FF9488",
+          "anchor": false
+        },
+        {
+          "step": 70,
+          "hex": "#FB7467",
+          "anchor": false
+        },
+        {
+          "step": 80,
+          "hex": "#ED594E",
+          "anchor": false
+        },
+        {
+          "step": 90,
+          "hex": "#D43C35",
+          "anchor": false
+        },
+        {
+          "step": 100,
+          "hex": "#B91C1C",
+          "anchor": true
+        },
+        {
+          "step": 110,
+          "hex": "#A0000B",
+          "anchor": false
+        },
+        {
+          "step": 120,
+          "hex": "#840007",
+          "anchor": false
+        },
+        {
+          "step": 130,
+          "hex": "#6C0005",
+          "anchor": false
+        },
+        {
+          "step": 140,
+          "hex": "#540003",
+          "anchor": false
+        },
+        {
+          "step": 150,
+          "hex": "#400001",
+          "anchor": false
+        },
+        {
+          "step": 160,
+          "hex": "#2F0001",
+          "anchor": false
+        }
+      ]
+    },
+    {
+      "name": "yellow",
+      "steps": [
+        {
+          "step": 10,
+          "hex": "#FFFAEC",
+          "anchor": false
+        },
+        {
+          "step": 20,
+          "hex": "#FFF3D4",
+          "anchor": true
+        },
+        {
+          "step": 30,
+          "hex": "#FEE9B7",
+          "anchor": false
+        },
+        {
+          "step": 40,
+          "hex": "#FBDC95",
+          "anchor": false
+        },
+        {
+          "step": 50,
+          "hex": "#F6CB68",
+          "anchor": false
+        },
+        {
+          "step": 60,
+          "hex": "#F0B723",
+          "anchor": true
+        },
+        {
+          "step": 70,
+          "hex": "#DF9F00",
+          "anchor": false
+        },
+        {
+          "step": 80,
+          "hex": "#CA8900",
+          "anchor": false
+        },
+        {
+          "step": 90,
+          "hex": "#AD7114",
+          "anchor": true
+        },
+        {
+          "step": 100,
+          "hex": "#925C00",
+          "anchor": false
+        },
+        {
+          "step": 110,
+          "hex": "#794C00",
+          "anchor": false
+        },
+        {
+          "step": 120,
+          "hex": "#633E00",
+          "anchor": false
+        },
+        {
+          "step": 130,
+          "hex": "#503100",
+          "anchor": false
+        },
+        {
+          "step": 140,
+          "hex": "#3D2400",
+          "anchor": false
+        },
+        {
+          "step": 150,
+          "hex": "#2D1900",
+          "anchor": false
+        },
+        {
+          "step": 160,
+          "hex": "#1F1000",
+          "anchor": false
+        }
+      ]
+    },
+    {
+      "name": "purple",
+      "steps": [
+        {
+          "step": 10,
+          "hex": "#FAF9FF",
+          "anchor": false
+        },
+        {
+          "step": 20,
+          "hex": "#F4F0FF",
+          "anchor": false
+        },
+        {
+          "step": 30,
+          "hex": "#EAE3FF",
+          "anchor": false
+        },
+        {
+          "step": 40,
+          "hex": "#DFD3FF",
+          "anchor": false
+        },
+        {
+          "step": 50,
+          "hex": "#D1BFFF",
+          "anchor": false
+        },
+        {
+          "step": 60,
+          "hex": "#C2A8FF",
+          "anchor": false
+        },
+        {
+          "step": 70,
+          "hex": "#B38FFF",
+          "anchor": false
+        },
+        {
+          "step": 80,
+          "hex": "#A573FF",
+          "anchor": false
+        },
+        {
+          "step": 90,
+          "hex": "#9154F0",
+          "anchor": false
+        },
+        {
+          "step": 100,
+          "hex": "#7C3AD6",
+          "anchor": true
+        },
+        {
+          "step": 110,
+          "hex": "#6927BB",
+          "anchor": false
+        },
+        {
+          "step": 120,
+          "hex": "#5716A0",
+          "anchor": false
+        },
+        {
+          "step": 130,
+          "hex": "#470886",
+          "anchor": false
+        },
+        {
+          "step": 140,
+          "hex": "#37006B",
+          "anchor": false
+        },
+        {
+          "step": 150,
+          "hex": "#280051",
+          "anchor": false
+        },
+        {
+          "step": 160,
+          "hex": "#1B003B",
+          "anchor": false
+        }
+      ]
+    }
+  ],
+  "extras": [
+    {
+      "name": "orange-logo",
+      "hex": "#FF5E2D",
+      "note": "Logo y degradados. Pendiente unificar con orange-80."
+    }
+  ]
+}

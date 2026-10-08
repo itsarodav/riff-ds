@@ -1,0 +1,123 @@
+<pg-page-header
+  eyebrow="Foundations"
+  title="Color"
+  description="8 familias de 16 pasos (10 → 160). Todas comparten la misma curva de luminosidad, así que un mismo paso pesa igual en cualquier color. Los colores marcados con ● vienen de riffims y se mantienen exactos."
+/>
+
+<section class="usage" aria-labelledby="usage-title">
+  <h2 id="usage-title" class="pg-sr-only">Cómo usar los colores</h2>
+  <pg-code-block [snippets]="usage" label="Cómo usar un color" />
+</section>
+
+<div class="toolbar" role="group" aria-label="Opciones de visualización">
+  <fieldset class="segmented">
+    <legend class="segmented__legend">Fondo</legend>
+    @for (option of backgrounds; track option[0]) {
+      <label class="segmented__option">
+        <input
+          type="radio"
+          name="background"
+          [value]="option[0]"
+          [checked]="background() === option[0]"
+          (change)="background.set(option[0])"
+        />
+        <span>{{ option[1].label }}</span>
+      </label>
+    }
+  </fieldset>
+
+  <fieldset class="segmented">
+    <legend class="segmented__legend">Copiar como</legend>
+    @for (option of formats; track option[0]) {
+      <label class="segmented__option">
+        <input
+          type="radio"
+          name="format"
+          [value]="option[0]"
+          [checked]="format() === option[0]"
+          (change)="format.set(option[0])"
+        />
+        <span>{{ option[1] }}</span>
+      </label>
+    }
+  </fieldset>
+
+  <p class="legend">
+    Contraste sobre <code>{{ bg().token }}</code>:
+    <span class="badge" data-level="AAA">AAA</span> ≥ 7 ·
+    <span class="badge" data-level="AA">AA</span> ≥ 4.5 texto ·
+    <span class="badge" data-level="AA+">AA+</span> ≥ 3 texto grande / UI
+  </p>
+</div>
+
+<div class="panel" [attr.data-bg]="background()">
+  @for (family of families(); track family.name) {
+    <section class="family" [attr.aria-labelledby]="'family-' + family.name">
+      <header class="family__header">
+        <h2 class="family__name" [id]="'family-' + family.name">{{ family.name }}</h2>
+        @if (family.anchors.length) {
+          <p class="family__anchors">
+            ● riffims:
+            @for (anchor of family.anchors; track anchor.step; let last = $last) {
+              <code>{{ anchor.step }}</code> {{ anchor.hex }}{{ last ? '' : ' · ' }}
+            }
+          </p>
+        }
+      </header>
+
+      <ul class="ramp">
+        @for (swatch of family.steps; track swatch.step) {
+          <li>
+            <button
+              type="button"
+              class="swatch"
+              [attr.aria-label]="'Copiar ' + tokenText(swatch.token, swatch.hex) + ', contraste ' + swatch.ratio"
+              (click)="copy(swatch.token, swatch.hex)"
+            >
+              <span class="swatch__chip" [style.background]="swatch.hex">
+                @if (swatch.anchor) {
+                  <span class="swatch__anchor" [class.is-light]="swatch.darkChip" aria-hidden="true">●</span>
+                }
+              </span>
+              <span class="swatch__step">{{ swatch.step }}</span>
+              <span class="swatch__hex">{{ swatch.hex }}</span>
+              <span class="swatch__contrast">
+                {{ swatch.ratio }}
+                <span class="badge" [attr.data-level]="swatch.level">{{ swatch.level }}</span>
+              </span>
+            </button>
+          </li>
+        }
+      </ul>
+    </section>
+  }
+
+  <section class="family" aria-labelledby="family-extras">
+    <header class="family__header">
+      <h2 class="family__name family__name--plain" id="family-extras">Fuera de rampa</h2>
+    </header>
+    <ul class="ramp ramp--extras">
+      @for (extra of extras; track extra.name) {
+        <li>
+          <button
+            type="button"
+            class="swatch"
+            [attr.aria-label]="'Copiar ' + tokenText(extra.name, extra.hex)"
+            (click)="copy(extra.name, extra.hex)"
+          >
+            <span class="swatch__chip" [style.background]="extra.hex"></span>
+            <span class="swatch__step">{{ extra.name }}</span>
+            <span class="swatch__hex">{{ extra.hex }}</span>
+            <span class="swatch__note">{{ extra.note }}</span>
+          </button>
+        </li>
+      }
+    </ul>
+  </section>
+</div>
+
+<div class="toast" [class.is-visible]="lastCopied()" aria-live="polite">
+  @if (lastCopied()) {
+    Copiado: <code>{{ lastCopied() }}</code>
+  }
+</div>

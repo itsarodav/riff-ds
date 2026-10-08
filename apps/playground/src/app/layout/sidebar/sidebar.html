@@ -1,0 +1,31 @@
+<a class="brand" routerLink="/">
+  <span class="brand__name">riff-ds</span>
+  <span class="brand__tag">Playground</span>
+</a>
+
+<nav class="nav" aria-label="Secciones del playground">
+  @for (section of sections; track section.id) {
+    <section class="nav__group" [attr.aria-labelledby]="'nav-' + section.id">
+      <h2 class="nav__title" [id]="'nav-' + section.id">{{ section.label }}</h2>
+      @if (section.pages.length) {
+        <ul class="nav__list">
+          @for (page of section.pages; track page.path) {
+            <li>
+              <a
+                class="nav__link"
+                [routerLink]="'/' + page.path"
+                routerLinkActive="is-active"
+                [routerLinkActiveOptions]="{ exact: true }"
+                ariaCurrentWhenActive="page"
+              >
+                {{ page.title }}
+              </a>
+            </li>
+          }
+        </ul>
+      } @else {
+        <p class="nav__empty">Próximamente</p>
+      }
+    </section>
+  }
+</nav>

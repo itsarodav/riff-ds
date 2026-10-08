@@ -12,7 +12,8 @@
       "default": "./dist/tokens.css"
     },
     "./tokens.css": "./dist/tokens.css",
-    "./scss": "./src/_index.scss"
+    "./scss": "./src/_index.scss",
+    "./colors.json": "./src/colors.json"
   },
   "files": [
     "src",

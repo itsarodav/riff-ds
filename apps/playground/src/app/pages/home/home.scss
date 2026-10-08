@@ -1,0 +1,108 @@
+:host {
+  display: block;
+  max-width: var(--pg-content-max);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--riff-space-4);
+  max-width: 48rem;
+  margin-bottom: var(--riff-space-12);
+
+  &__title {
+    font-size: var(--riff-font-size-lg);
+    font-weight: var(--riff-font-weight-bold);
+    letter-spacing: -0.02em;
+  }
+
+  &__text {
+    color: var(--pg-text-muted);
+  }
+}
+
+code {
+  font-size: 0.9em;
+}
+
+.layers {
+  display: flex;
+  flex-direction: column;
+  gap: var(--riff-space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: layer;
+
+  &__item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: var(--riff-space-3);
+    padding: var(--riff-space-4);
+    border: 1px solid var(--pg-border);
+    border-radius: var(--pg-radius);
+    background: var(--pg-surface);
+    counter-increment: layer;
+
+    &::before {
+      content: counter(layer);
+      grid-row: span 2;
+      display: grid;
+      place-items: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: var(--pg-accent-soft);
+      color: var(--pg-accent);
+      font-weight: var(--riff-font-weight-bold);
+    }
+  }
+
+  &__name {
+    font-weight: var(--riff-font-weight-semibold);
+  }
+
+  &__text {
+    font-size: var(--riff-font-size-sm);
+    color: var(--pg-text-muted);
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--riff-space-1);
+  max-width: 20rem;
+  padding: var(--riff-space-4);
+  border: 1px solid var(--pg-border);
+  border-radius: var(--pg-radius);
+  background: var(--pg-surface);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 150ms;
+
+  &:hover {
+    border-color: var(--pg-accent);
+  }
+
+  &__swatches {
+    display: flex;
+    gap: var(--riff-space-1);
+    margin-bottom: var(--riff-space-2);
+
+    span {
+      flex: 1;
+      height: 2rem;
+      border-radius: var(--pg-radius-sm);
+    }
+  }
+
+  &__title {
+    font-weight: var(--riff-font-weight-semibold);
+  }
+
+  &__text {
+    font-size: var(--riff-font-size-sm);
+    color: var(--pg-text-muted);
+  }
+}

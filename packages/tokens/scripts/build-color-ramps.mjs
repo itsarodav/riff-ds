@@ -52,7 +52,9 @@ const FAMILIES = {
 };
 
 // Fuera de rampa hasta decidir cuál es el naranja de marca (ver docs §3.3).
-const EXTRAS = { 'orange-logo': '#FF5E2D' };
+const EXTRAS = {
+  'orange-logo': { hex: '#FF5E2D', note: 'Logo y degradados. Pendiente unificar con orange-80.' },
+};
 
 // Interpola linealmente un valor por paso a partir de puntos { índice: valor };
 // fuera del primer/último punto decae hacia `edge` en los extremos, o se
@@ -117,7 +119,7 @@ for (const [name, ramp] of Object.entries(ramps)) {
   lines.push('');
 }
 lines.push('// ---- Fuera de rampa ----');
-for (const [name, hex] of Object.entries(EXTRAS)) lines.push(`$riff-${name}: ${hex}; // logo y degradados, pendiente unificar con orange-80`);
+for (const [name, { hex, note }] of Object.entries(EXTRAS)) lines.push(`$riff-${name}: ${hex}; // ${note}`);
 lines.push('', '// Mapa para generar CSS custom properties y para riff.color(familia, paso).', '$riff-colors: (');
 for (const [name, ramp] of Object.entries(ramps)) {
   lines.push(`  '${name}': (`);
@@ -131,6 +133,19 @@ lines.push(');', '');
 const out = fileURLToPath(new URL('../src/primitives/_color.scss', import.meta.url));
 writeFileSync(out, lines.join('\n'));
 console.log(`✔ ${out}`);
+
+// ---- Salida JSON (para el playground y otras herramientas) ----
+const json = {
+  $generated: 'scripts/build-color-ramps.mjs — no editar a mano',
+  families: Object.entries(ramps).map(([name, ramp]) => ({
+    name,
+    steps: ramp.map((hex, i) => ({ step: stepName(i), hex, anchor: Boolean(FAMILIES[name].anchors[stepName(i)]) })),
+  })),
+  extras: Object.entries(EXTRAS).map(([name, extra]) => ({ name, ...extra })),
+};
+const jsonOut = fileURLToPath(new URL('../src/colors.json', import.meta.url));
+writeFileSync(jsonOut, JSON.stringify(json, null, 2) + '\n');
+console.log(`✔ ${jsonOut}`);
 
 // ---- Informe opcional: contraste de cada paso sobre los fondos light y dark ----
 if (process.argv.includes('--report')) {
