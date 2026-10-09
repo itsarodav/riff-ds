@@ -1,6 +1,6 @@
-// Layout: sidebar fija a la izquierda y contenido a la derecha (≥64rem).
-// En pantallas pequeñas el sidebar es un panel que entra por la derecha, junto al
-// botón de menú (logo a la izquierda, menú a mano del pulgar a la derecha).
+// Layout: navbar arriba, a todo el ancho; debajo, sidebar fija a la izquierda y
+// contenido a la derecha (≥64rem). En pantallas pequeñas el sidebar es un panel
+// que entra por la derecha, junto al botón de menú del navbar.
 
 :host {
   display: block;
@@ -22,54 +22,28 @@
   }
 }
 
-.topbar {
-  position: sticky;
-  top: 0;
-  z-index: 5;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--riff-space-2);
-  height: var(--pg-size-topbar);
-  padding-inline: var(--pg-gutter) var(--riff-space-2);
-  background: var(--pg-color-surface-sunken);
-  border-bottom: 1px solid var(--pg-color-border);
+// Botón del sidebar dentro del navbar: solo en pantallas pequeñas.
+.menu-button {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-right: calc(var(--riff-space-2) * -1);
+  padding: 0;
+  border: 0;
+  border-radius: var(--pg-radius-sm);
+  background: transparent;
+  cursor: pointer;
 
-  &__menu {
-    display: grid;
-    place-items: center;
-    width: 2.75rem;
-    height: 2.75rem;
-    padding: 0;
-    border: 0;
-    border-radius: var(--pg-radius-sm);
-    background: transparent;
-    cursor: pointer;
-
-    &:hover {
-      background: var(--pg-color-surface-hover);
-    }
-
-    svg {
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 2;
-      stroke-linecap: round;
-    }
+  &:hover {
+    background: var(--pg-color-surface-hover);
   }
 
-  &__brand {
-    display: flex;
-    align-items: center;
-    gap: var(--riff-space-1);
-    font-weight: var(--riff-font-weight-bold);
-    letter-spacing: -0.02em;
-    color: var(--pg-color-text-muted);
-  }
-
-  &__logo {
-    height: var(--riff-space-6);
-    color: var(--pg-color-text);
+  svg {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
   }
 }
 
@@ -125,7 +99,7 @@
 }
 
 @media (min-width: 64rem) {
-  .topbar,
+  .menu-button,
   .layout__scrim {
     display: none;
   }
@@ -138,16 +112,14 @@
       position: sticky;
       inset: auto;
       border-left: 0;
-      top: 0;
+      // El texto de los enlaces (con su padding) arranca donde el logo del navbar.
+      padding-inline: calc(var(--pg-gutter) - var(--riff-space-3));
+      top: var(--pg-size-topbar);
       width: auto;
-      height: 100dvh;
+      height: calc(100dvh - var(--pg-size-topbar));
       transform: none;
       visibility: visible;
       transition: none;
-    }
-
-    &__main {
-      min-height: 100dvh;
     }
 
     &__content {

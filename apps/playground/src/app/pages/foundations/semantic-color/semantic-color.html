@@ -23,7 +23,6 @@
           <div
             class="message"
             [style.background]="cssVar(kind, 'background')"
-            [style.border-color]="cssVar(kind, 'border')"
           >
             <span class="message__icon" [style.background]="cssVar(kind, 'icon')" aria-hidden="true"></span>
             <p class="message__text" [style.color]="cssVar(kind, 'content')">
@@ -39,9 +38,9 @@
           </div>
         }
         <div class="actions">
-          <span class="button button--primary">Primario</span>
-          <span class="button button--secondary">Secundario</span>
           <a class="link" href="#preview-title">Enlace</a>
+          <span class="button button--secondary">Secundario</span>
+          <span class="button button--primary">Primario</span>
         </div>
       </div>
     }

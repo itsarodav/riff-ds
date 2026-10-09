@@ -4,13 +4,13 @@ import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs';
 
 import { Footer } from './layout/footer/footer';
+import { Navbar } from './layout/navbar/navbar';
 import { PageWidth } from './pages';
 import { Sidebar } from './layout/sidebar/sidebar';
-import { Logo } from './shared/logo/logo';
 
 @Component({
   selector: 'pg-root',
-  imports: [RouterOutlet, Sidebar, Footer, Logo],
+  imports: [RouterOutlet, Navbar, Sidebar, Footer],
   template: `
     <a class="skip-link" href="#main">Saltar al contenido</a>
 
@@ -18,13 +18,10 @@ import { Logo } from './shared/logo/logo';
       <!-- La portada trae su propia cabecera y su <main>. -->
       <router-outlet />
     } @else {
-      <header class="topbar">
-        <span class="topbar__brand">
-          <pg-logo class="topbar__logo" />
-        </span>
+      <pg-navbar>
         <button
           type="button"
-          class="topbar__menu"
+          class="menu-button"
           [attr.aria-expanded]="menuOpen()"
           aria-controls="pg-sidebar"
           (click)="menuOpen.set(!menuOpen())"
@@ -38,7 +35,7 @@ import { Logo } from './shared/logo/logo';
             }
           </svg>
         </button>
-      </header>
+      </pg-navbar>
 
       <div class="layout">
         <pg-sidebar id="pg-sidebar" class="layout__sidebar" [class.is-open]="menuOpen()" />

@@ -2,13 +2,12 @@ import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 import { PAGES, SECTIONS } from '../../pages';
-import { Logo } from '../../shared/logo/logo';
 import { Segmented, SegmentedOption } from '../../shared/segmented/segmented';
 import { ThemeMode, ThemeService } from '../../theme/theme';
 
 @Component({
   selector: 'pg-sidebar',
-  imports: [RouterLink, RouterLinkActive, Logo, Segmented],
+  imports: [RouterLink, RouterLinkActive, Segmented],
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.scss',
 })

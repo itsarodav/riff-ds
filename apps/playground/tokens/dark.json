@@ -34,6 +34,10 @@
         "$value": "{sage.60}",
         "$description": "Texto secundario (≥4.5:1)"
       },
+      "nav-title": {
+        "$value": "{sage.50}",
+        "$description": "Títulos de sección del sidebar"
+      },
       "border": {
         "$value": "{sage.130}",
         "$description": "Bordes decorativos"

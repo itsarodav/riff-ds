@@ -1,7 +1,3 @@
-<a class="brand" routerLink="/" aria-label="Riff DS, ir a la portada">
-  <pg-logo class="brand__logo" />
-</a>
-
 <nav class="nav" aria-label="Secciones del playground">
   @for (section of sections; track section.id) {
     <section class="nav__group" [attr.aria-labelledby]="'nav-' + section.id">

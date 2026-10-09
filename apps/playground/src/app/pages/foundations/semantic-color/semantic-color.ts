@@ -21,7 +21,7 @@ export class SemanticColorPage {
   protected readonly usage: CodeSnippet[] = [
     {
       label: 'CSS',
-      code: `/* Importa una vez: @riff-ds/tokens/tokens.css + @riff-ds/tokens/semantic.css */\n.toast--info {\n  background: var(--riff-color-info-background);\n  border: 1px solid var(--riff-color-info-border);\n  color: var(--riff-color-info-content);\n}`,
+      code: `/* Importa una vez: @riff-ds/tokens/tokens.css + @riff-ds/tokens/semantic.css */\n.toast--info {\n  background: var(--riff-color-info-background);\n  border: 1px solid var(--riff-color-border-default);\n  color: var(--riff-color-info-content);\n}`,
     },
     {
       label: 'Tema',

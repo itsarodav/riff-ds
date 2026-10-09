@@ -1,0 +1,99 @@
+:host {
+  display: block;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.nav {
+  border-bottom: 1px solid var(--pg-color-border);
+  background: var(--pg-color-bg);
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--riff-space-6);
+    max-width: var(--navbar-max, none);
+    height: var(--pg-size-topbar);
+    margin-inline: auto;
+    padding-inline: var(--pg-gutter);
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--riff-space-4);
+  }
+
+  &__brand {
+    display: flex;
+    color: var(--pg-color-text);
+  }
+
+  &__logo {
+    height: var(--riff-space-6);
+  }
+
+  &__links {
+    display: none;
+    gap: var(--riff-space-1);
+
+    @media (min-width: 48rem) {
+      display: flex;
+    }
+  }
+
+  &__link {
+    padding: var(--riff-space-2) var(--riff-space-3);
+    border-radius: var(--pg-radius-sm);
+    font-size: var(--riff-font-size-sm);
+    font-weight: var(--riff-font-weight-medium);
+    color: var(--pg-color-text-muted);
+    text-decoration: none;
+
+    &:hover,
+    &.is-active {
+      color: var(--pg-color-text);
+    }
+
+    &:hover {
+      background: var(--pg-color-surface-hover);
+    }
+  }
+
+  // Botón secundario pequeño: borde sage sobre el fondo de la página.
+  &__github {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--riff-space-2);
+    min-height: 2.5rem;
+    padding: var(--riff-space-2) var(--riff-space-4);
+    border: 1px solid var(--riff-color-border-default);
+    border-radius: var(--pg-radius-button);
+    background: var(--riff-color-background-canvas);
+    color: var(--riff-color-content-default);
+    font-size: var(--riff-font-size-sm);
+    font-weight: var(--riff-font-weight-semibold);
+    white-space: nowrap;
+    text-decoration: none;
+    transition:
+      background-color 150ms,
+      border-color 150ms;
+
+    &:hover {
+      border-color: var(--riff-color-border-strong);
+      background: var(--riff-color-background-hover);
+    }
+
+    &:active {
+      background: var(--riff-color-background-pressed);
+    }
+  }
+
+  &__icon {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+  }
+}

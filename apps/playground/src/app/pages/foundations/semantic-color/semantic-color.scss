@@ -69,7 +69,8 @@ code {
   align-items: center;
   gap: var(--riff-space-2);
   padding: var(--riff-space-2) var(--riff-space-3);
-  border: 1px solid;
+  // Borde neutro (sage), como el de cualquier card: el color lo da el fondo.
+  border: 1px solid var(--riff-color-border-default);
   border-radius: var(--pg-radius-sm);
 
   &__icon {
@@ -107,6 +108,7 @@ code {
 
 .button {
   padding: var(--riff-space-2) var(--riff-space-4);
+  border: 1px solid transparent;
   border-radius: var(--pg-radius-sm);
   font-size: var(--riff-font-size-sm);
   font-weight: var(--riff-font-weight-semibold);
@@ -116,9 +118,12 @@ code {
     color: var(--riff-color-content-on-action);
   }
 
+  // Secundario neutro, igual que en el resto del playground: borde sage
+  // sobre el fondo de la página de cada modo.
   &--secondary {
-    background: var(--riff-color-action-secondary);
-    color: var(--riff-color-content-selected);
+    border-color: var(--riff-color-border-default);
+    background: var(--riff-color-background-canvas);
+    color: var(--riff-color-content-default);
   }
 }
 

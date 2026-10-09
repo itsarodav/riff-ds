@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { Footer } from '../../layout/footer/footer';
+import { Navbar } from '../../layout/navbar/navbar';
 import { PAGES, SECTIONS } from '../../pages';
 import { Card } from '../../shared/card/card';
 import { Logo } from '../../shared/logo/logo';
-import { NAV_LINKS, REPO_URL } from '../../shared/site';
 import { CardArt, CardArtKind } from './card-art/card-art';
 
 interface CoverCard {
@@ -30,14 +30,11 @@ const ART: Record<string, CardArtKind> = {
  */
 @Component({
   selector: 'pg-cover',
-  imports: [RouterLink, Logo, Footer, Card, CardArt],
+  imports: [RouterLink, Logo, Navbar, Footer, Card, CardArt],
   templateUrl: './cover.html',
   styleUrl: './cover.scss',
 })
 export class Cover {
-  protected readonly repoUrl = REPO_URL;
-  protected readonly nav = NAV_LINKS;
-
   /** Una tarjeta por página, y una por sección que aún no tiene páginas. */
   protected readonly cards: CoverCard[] = SECTIONS.flatMap((section): CoverCard[] => {
     const pages = PAGES.filter((page) => page.section === section.id);

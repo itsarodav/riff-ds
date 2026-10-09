@@ -36,12 +36,6 @@ main {
   padding-inline: var(--pg-gutter);
 }
 
-.icon {
-  width: 1em;
-  height: 1em;
-  fill: currentColor;
-}
-
 // ---- Botones ----
 .button {
   display: inline-flex;
@@ -64,12 +58,6 @@ main {
   &:focus-visible {
     outline: 2px solid var(--riff-color-border-focus);
     outline-offset: 2px;
-  }
-
-  &--sm {
-    min-height: 2.5rem;
-    padding: var(--riff-space-2) var(--riff-space-4);
-    font-size: var(--riff-font-size-sm);
   }
 
   &--primary {
@@ -111,58 +99,9 @@ main {
 }
 
 // ---- Navbar ----
-.nav {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  border-bottom: 1px solid var(--pg-color-border);
-  background: var(--pg-color-bg);
-
-  &__inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--riff-space-6);
-    height: var(--pg-size-topbar);
-  }
-
-  &__actions {
-    display: flex;
-    align-items: center;
-    gap: var(--riff-space-4);
-  }
-
-  &__brand {
-    display: flex;
-    color: var(--pg-color-text);
-  }
-
-  &__logo {
-    height: var(--riff-space-6);
-  }
-
-  &__links {
-    display: none;
-    gap: var(--riff-space-1);
-
-    @media (min-width: 48rem) {
-      display: flex;
-    }
-  }
-
-  &__link {
-    padding: var(--riff-space-2) var(--riff-space-3);
-    border-radius: var(--pg-radius-sm);
-    font-size: var(--riff-font-size-sm);
-    font-weight: var(--riff-font-weight-medium);
-    color: var(--pg-color-text-muted);
-    text-decoration: none;
-
-    &:hover {
-      background: var(--pg-color-surface-hover);
-      color: var(--pg-color-text);
-    }
-  }
+// El navbar compartido, con el mismo ancho que el resto de la portada.
+pg-navbar {
+  --navbar-max: var(--cover-max);
 }
 
 // ---- Hero ----
@@ -318,9 +257,10 @@ main {
     padding: var(--riff-space-1) var(--riff-space-2);
     border-radius: var(--pg-radius-sm);
 
+    // Mismo selected sage que el sidebar real del playground.
     &.is-active {
-      background: var(--riff-color-background-selected);
-      color: var(--riff-color-content-selected);
+      background: var(--pg-color-selected);
+      color: var(--pg-color-on-selected);
       font-weight: var(--riff-font-weight-semibold);
     }
 
@@ -399,7 +339,7 @@ main {
   align-items: center;
   gap: var(--riff-space-2);
   padding: var(--riff-space-2) var(--riff-space-3);
-  border: 1px solid;
+  border: 1px solid var(--riff-color-border-default);
   border-radius: var(--pg-radius-sm);
   line-height: var(--riff-line-height-snug);
 
@@ -428,9 +368,11 @@ main {
     color: var(--riff-color-content-on-action);
   }
 
+  // Secundario sobre el fondo de la página, solo con borde.
   &--secondary {
     border-color: var(--riff-color-border-default);
-    background: var(--riff-color-action-secondary);
+    background: var(--riff-color-background-canvas);
+    color: var(--riff-color-content-default);
   }
 }
 
