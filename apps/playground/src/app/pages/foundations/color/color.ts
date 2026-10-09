@@ -11,14 +11,15 @@ import { ResolvedTheme, ThemeService } from '../../../theme/theme';
 type CopyFormat = 'css' | 'scss' | 'hex';
 
 const sage = colors.families.find((f) => f.name === 'sage')!.steps;
+const sageStep = (step: number) => sage.find((s) => s.step === step)!.hex;
 
 /**
  * Fondo de la vista previa en cada tema. Coincide con --pg-color-bg de
  * light.json / dark.json; aquí hace falta el hex para calcular el contraste.
  */
 const PREVIEW_BG: Record<ResolvedTheme, { token: string; hex: string }> = {
-  light: { token: 'sage-10', hex: sage[0].hex },
-  dark: { token: 'sage-160', hex: sage[sage.length - 1].hex },
+  light: { token: 'sage-10', hex: sageStep(10) },
+  dark: { token: 'sage-160', hex: sageStep(160) },
 };
 
 @Component({

@@ -18,6 +18,14 @@
         "$value": "{sage.140}",
         "$description": "Hover sobre superficies"
       },
+      "segmented-track": {
+        "$value": "{sage.140}",
+        "$description": "Fondo (carril) del control segmentado"
+      },
+      "segmented-thumb": {
+        "$value": "{sage.120}",
+        "$description": "Opción seleccionada: un paso más clara que el carril para que se eleve"
+      },
       "text": {
         "$value": "{sage.20}",
         "$description": "Texto principal"

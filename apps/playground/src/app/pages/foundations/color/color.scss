@@ -1,6 +1,5 @@
 :host {
   display: block;
-  max-width: var(--pg-size-content-max);
 }
 
 code {
@@ -99,18 +98,18 @@ code {
 
 .ramp {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: var(--riff-space-2);
   margin: 0;
   padding: 0;
   list-style: none;
 
   @container (min-width: 36rem) {
-    grid-template-columns: repeat(8, minmax(0, 1fr));
+    grid-template-columns: repeat(9, minmax(0, 1fr));
   }
 
   @container (min-width: 64rem) {
-    grid-template-columns: repeat(16, minmax(0, 1fr));
+    grid-template-columns: repeat(17, minmax(0, 1fr));
     gap: var(--riff-space-1);
   }
 }

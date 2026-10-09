@@ -1,0 +1,33 @@
+@switch (kind()) {
+  @case ('layers') {
+    <span class="layers"><i>Primitivos</i><i>Semánticos</i><i>Componente</i></span>
+  }
+  @case ('code') {
+    <span class="code">
+      <span>npm install &#64;riff-ds/tokens</span>
+      <span>&#64;use '&#64;riff-ds/tokens';</span>
+    </span>
+  }
+  @case ('timeline') {
+    <span class="timeline"><i></i><i></i><i></i></span>
+  }
+  @case ('swatches') {
+    <span class="swatches">
+      <i style="background: var(--riff-sage-40)"></i>
+      <i style="background: var(--riff-blue-100)"></i>
+      <i style="background: var(--riff-orange-80)"></i>
+      <i style="background: var(--riff-green-90)"></i>
+      <i style="background: var(--riff-purple-100)"></i>
+    </span>
+  }
+  @case ('modes') {
+    <!-- Cada mitad fija su propio data-theme, así que los --riff-color-* cambian solos. -->
+    <span class="modes">
+      <span data-theme="light"><i></i><b></b></span>
+      <span data-theme="dark"><i></i><b></b></span>
+    </span>
+  }
+  @default {
+    <span class="soon"><i></i><i></i></span>
+  }
+}

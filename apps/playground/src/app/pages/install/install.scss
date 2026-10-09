@@ -1,0 +1,25 @@
+:host {
+  display: block;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--riff-space-4);
+  max-width: 48rem;
+  margin-bottom: var(--riff-space-12);
+
+  &__title {
+    font-size: var(--riff-font-size-lg);
+    font-weight: var(--riff-font-weight-bold);
+    letter-spacing: -0.02em;
+  }
+
+  &__text {
+    color: var(--pg-color-text-muted);
+  }
+}
+
+code {
+  font-size: 0.9em;
+}

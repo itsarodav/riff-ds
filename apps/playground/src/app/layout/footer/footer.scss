@@ -1,0 +1,98 @@
+// Dos bloques con el mismo ancho: el principal sobre el fondo de la página y la
+// firma en una banda un tono más hundida. Tokens semánticos: claro y oscuro solos.
+
+:host {
+  --footer-max: var(--pg-size-content-max);
+
+  display: block;
+}
+
+.footer {
+  border-top: 1px solid var(--riff-color-border-subtle);
+  color: var(--riff-color-content-subtle);
+
+  // --footer-max es el ancho del contenido, sin el padding (content-box): así
+  // casa con el .layout__inner del shell, que también lo mide sin padding.
+  &__inner {
+    box-sizing: content-box;
+    max-width: var(--footer-max);
+    margin-inline: auto;
+    padding-inline: var(--pg-gutter);
+  }
+
+  // ---- Bloque principal ----
+  &__main &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--riff-space-4) var(--riff-space-6);
+    padding-block: var(--riff-space-8);
+  }
+
+  // Logo en un solo color, el mismo sage que los enlaces: discreto.
+  &__brand {
+    display: flex;
+    color: var(--riff-color-content-subtle);
+    transition: color 150ms;
+
+    &:hover {
+      color: var(--riff-color-content-default);
+    }
+  }
+
+  &__logo {
+    height: var(--riff-space-4);
+  }
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--riff-space-2) var(--riff-space-6);
+    font-size: var(--riff-font-size-sm);
+
+    a {
+      color: var(--riff-color-content-subtle);
+      text-decoration: none;
+      transition: color 150ms;
+
+      &:hover {
+        color: var(--riff-color-content-default);
+      }
+    }
+  }
+
+  // ---- Firma ----
+  &__credits {
+    border-top: 1px solid var(--riff-color-border-subtle);
+    background: var(--riff-color-background-surface-sunken);
+  }
+
+  // Iconos del portfolio de arodav (heart y headphones), en el color del texto.
+  &__icon {
+    width: 1.1em;
+    height: 1.1em;
+    margin-inline: 0.1em;
+    vertical-align: -0.2em;
+    fill: currentColor;
+  }
+
+  &__crafted {
+    padding-block: var(--riff-space-4);
+    font-size: var(--riff-font-size-xs);
+    text-align: center;
+
+    a {
+      color: var(--riff-color-content-default);
+      font-weight: var(--riff-font-weight-semibold);
+      text-decoration: underline;
+      text-decoration-color: var(--riff-color-border-default);
+      text-underline-offset: 3px;
+      transition: text-decoration-color 150ms;
+
+      &:hover {
+        text-decoration-color: currentColor;
+      }
+    }
+  }
+}

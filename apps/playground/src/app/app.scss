@@ -96,13 +96,28 @@
     background: var(--pg-color-scrim);
   }
 
+  // Contenido + footer: el footer queda abajo aunque la página sea corta.
+  &__main {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: calc(100dvh - var(--pg-size-topbar));
+  }
+
   &__content {
+    flex: 1;
     min-width: 0;
     padding: var(--riff-space-8) var(--pg-gutter) var(--riff-space-16);
 
     &:focus {
       outline: none;
     }
+  }
+
+  // Todas las páginas comparten ancho máximo y van centradas en el espacio libre.
+  &__inner {
+    max-width: var(--pg-size-content-max);
+    margin-inline: auto;
   }
 }
 
@@ -125,6 +140,10 @@
       transform: none;
       visibility: visible;
       transition: none;
+    }
+
+    &__main {
+      min-height: 100dvh;
     }
 
     &__content {

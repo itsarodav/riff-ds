@@ -14,6 +14,13 @@
           "value": 12,
           "unit": "px"
         }
+      },
+      "button": {
+        "$value": {
+          "value": 8,
+          "unit": "px"
+        },
+        "$description": "Radio de los botones"
       }
     },
     "size": {

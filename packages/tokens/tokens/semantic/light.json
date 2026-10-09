@@ -7,7 +7,7 @@
         "$description": "Fondo de la página."
       },
       "surface": {
-        "$value": "{neutral.10}",
+        "$value": "{sage.5}",
         "$description": "Tarjetas, paneles y controles elevados sobre canvas."
       },
       "surface-sunken": {
@@ -71,6 +71,10 @@
       "brand": {
         "$value": "{orange.100}",
         "$description": "Texto en color de marca, accesible. Para iconos o acentos grandes: background/brand."
+      },
+      "logo": {
+        "$value": "{orange.80}",
+        "$description": "Isotipo del logo (ff). Decorativo: en dark un paso más claro para que no pierda viveza sobre el fondo oscuro."
       },
       "link": {
         "$value": "{blue.100}",

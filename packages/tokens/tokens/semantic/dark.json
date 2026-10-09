@@ -72,6 +72,10 @@
         "$value": "{orange.70}",
         "$description": "Texto en color de marca, accesible. Para iconos o acentos grandes: background/brand."
       },
+      "logo": {
+        "$value": "{orange.70}",
+        "$description": "Isotipo del logo (ff). Decorativo: en dark un paso más claro para que no pierda viveza sobre el fondo oscuro."
+      },
       "link": {
         "$value": "{blue.60}",
         "$description": "Enlaces de texto (≥ 4.5:1 sobre canvas)."

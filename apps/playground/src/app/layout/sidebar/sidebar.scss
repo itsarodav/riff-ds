@@ -20,11 +20,6 @@
     height: var(--riff-space-6);
   }
 
-  &__tag {
-    font-size: var(--riff-font-size-xs);
-    color: var(--pg-color-text-muted);
-  }
-
   @media (min-width: 64rem) {
     display: flex;
   }

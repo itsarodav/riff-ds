@@ -7,7 +7,7 @@
         "$description": "Fondo de la página"
       },
       "surface": {
-        "$value": "{neutral.10}",
+        "$value": "{sage.5}",
         "$description": "Tarjetas y controles"
       },
       "surface-sunken": {
@@ -17,6 +17,14 @@
       "surface-hover": {
         "$value": "{sage.30}",
         "$description": "Hover sobre superficies"
+      },
+      "segmented-track": {
+        "$value": "{sage.30}",
+        "$description": "Fondo (carril) del control segmentado"
+      },
+      "segmented-thumb": {
+        "$value": "{neutral.10}",
+        "$description": "Opción seleccionada del control segmentado"
       },
       "text": {
         "$value": "{sage.130}",

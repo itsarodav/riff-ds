@@ -1,0 +1,39 @@
+<footer class="footer">
+  <div class="footer__main">
+    <div class="footer__inner">
+      <a class="footer__brand" routerLink="/" aria-label="Riff DS, ir a la portada">
+        <pg-logo class="footer__logo" mono />
+      </a>
+      <nav class="footer__links" aria-label="Pie de página">
+        @for (link of nav; track link.path) {
+          <a [routerLink]="link.path">{{ link.label }}</a>
+        }
+        <a [href]="repoUrl" target="_blank" rel="noopener noreferrer">
+          GitHub<span class="pg-sr-only"> (se abre en una pestaña nueva)</span>
+        </a>
+      </nav>
+      @if (themeSwitch()) {
+        <pg-segmented legend="Tema" legendHidden [options]="themeOptions" [(value)]="theme.mode" />
+      }
+    </div>
+  </div>
+
+  <div class="footer__credits">
+    <p class="footer__inner footer__crafted">
+      crafted with
+      <svg class="footer__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M2 9.13735C2 14.0002 6.01943 16.5916 8.96173 18.9111C10 19.7296 11 20.5002 12 20.5002C13 20.5002 14 19.7296 15.0383 18.9111C17.9806 16.5916 22 14.0002 22 9.13735C22 4.27441 16.4998 0.825709 12 5.50088C7.50016 0.825709 2 4.27441 2 9.13735Z" />
+      </svg>
+      <span class="pg-sr-only">love</span>
+      and
+      <svg class="footer__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M21 17.9997C21 18.7649 20.7077 19.5012 20.1827 20.0579C19.6578 20.6147 18.9399 20.9498 18.176 20.9947L18 20.9997H17C16.2348 20.9997 15.4985 20.7073 14.9417 20.1824C14.385 19.6574 14.0499 18.9395 14.005 18.1757L14 17.9997V14.9997C14 14.2344 14.2923 13.4981 14.8173 12.9414C15.3422 12.3846 16.0601 12.0495 16.824 12.0047L17 11.9997H18C18.351 11.9997 18.688 12.0597 19 12.1707V11.9997C19.0009 10.1633 18.2802 8.4002 16.9932 7.09032C15.7062 5.78045 13.9561 5.02875 12.12 4.99727C10.284 4.96578 8.50907 5.65704 7.17794 6.92201C5.84681 8.18699 5.06606 9.92438 5.004 11.7597L5 11.9997V12.1697C5.25133 12.081 5.515 12.0267 5.791 12.0067L6 11.9997H7C7.76521 11.9996 8.50151 12.292 9.05826 12.8169C9.61501 13.3419 9.95011 14.0598 9.995 14.8237L10 14.9997V17.9997C10 18.7649 9.70767 19.5012 9.18272 20.0579C8.65776 20.6147 7.93989 20.9498 7.176 20.9947L7 20.9997H6C5.23479 20.9997 4.49849 20.7073 3.94174 20.1824C3.38499 19.6574 3.04989 18.9395 3.005 18.1757L3 17.9997V11.9997C3.00086 9.63622 3.93135 7.36798 5.59051 5.68483C7.24966 4.00168 9.50431 3.03871 11.8675 3.00391C14.2307 2.96911 16.5127 3.86527 18.2207 5.49884C19.9287 7.13241 20.9255 9.37227 20.996 11.7347L21 11.9997V17.9997Z" />
+      </svg>
+      <span class="pg-sr-only">music</span>
+      by
+      <a [href]="authorUrl" target="_blank" rel="noopener noreferrer">
+        arodav<span class="pg-sr-only"> (se abre en una pestaña nueva)</span>
+      </a>
+    </p>
+  </div>
+</footer>

@@ -1,5 +1,16 @@
 {
   "sage": {
+    "5": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9725,
+          0.9882,
+          0.9765
+        ],
+        "hex": "#F8FCF9"
+      }
+    },
     "10": {
       "$value": {
         "colorSpace": "srgb",
@@ -205,6 +216,17 @@
     "$description": "Rampa sage: generada por build-color-ramps.mjs, no editar a mano."
   },
   "neutral": {
+    "5": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9882,
+          0.9882,
+          0.9882
+        ],
+        "hex": "#FCFCFC"
+      }
+    },
     "10": {
       "$value": {
         "colorSpace": "srgb",
@@ -390,6 +412,17 @@
     "$description": "Rampa neutral: generada por build-color-ramps.mjs, no editar a mano."
   },
   "blue": {
+    "5": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9843,
+          0.9922,
+          1
+        ],
+        "hex": "#FBFDFF"
+      }
+    },
     "10": {
       "$value": {
         "colorSpace": "srgb",
@@ -575,6 +608,17 @@
     "$description": "Rampa blue: generada por build-color-ramps.mjs, no editar a mano."
   },
   "orange": {
+    "5": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1,
+          0.9882,
+          0.9843
+        ],
+        "hex": "#FFFCFB"
+      }
+    },
     "10": {
       "$value": {
         "colorSpace": "srgb",
@@ -760,6 +804,17 @@
     "$description": "Rampa orange: generada por build-color-ramps.mjs, no editar a mano."
   },
   "green": {
+    "5": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9725,
+          1,
+          0.9765
+        ],
+        "hex": "#F8FFF9"
+      }
+    },
     "10": {
       "$value": {
         "colorSpace": "srgb",
@@ -945,6 +1000,17 @@
     "$description": "Rampa green: generada por build-color-ramps.mjs, no editar a mano."
   },
   "red": {
+    "5": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1,
+          0.9882,
+          0.9843
+        ],
+        "hex": "#FFFCFB"
+      }
+    },
     "10": {
       "$value": {
         "colorSpace": "srgb",
@@ -1130,6 +1196,17 @@
     "$description": "Rampa red: generada por build-color-ramps.mjs, no editar a mano."
   },
   "yellow": {
+    "5": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1,
+          0.9922,
+          0.9647
+        ],
+        "hex": "#FFFDF6"
+      }
+    },
     "10": {
       "$value": {
         "colorSpace": "srgb",
@@ -1325,6 +1402,17 @@
     "$description": "Rampa yellow: generada por build-color-ramps.mjs, no editar a mano."
   },
   "purple": {
+    "5": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9882,
+          0.9882,
+          1
+        ],
+        "hex": "#FCFCFF"
+      }
+    },
     "10": {
       "$value": {
         "colorSpace": "srgb",

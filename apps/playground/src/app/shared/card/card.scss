@@ -1,0 +1,64 @@
+:host {
+  display: flex;
+}
+
+.card {
+  --card-bg: var(--riff-color-background-surface);
+  --card-border: var(--riff-color-border-subtle);
+  --card-inner: var(--riff-color-background-surface-sunken);
+  --card-inner-border: var(--riff-color-border-subtle);
+
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--riff-space-1);
+  padding: var(--riff-space-6);
+  border: 1px solid var(--card-border);
+  border-radius: var(--pg-radius-md);
+  background: var(--card-bg);
+  box-shadow: 0 1px 2px color-mix(in srgb, var(--riff-sage-160) 6%, transparent);
+  color: var(--riff-color-content-default);
+  text-decoration: none;
+  transition:
+    border-color 150ms,
+    box-shadow 150ms;
+
+  &:is(a):hover {
+    --card-border: var(--riff-color-border-default);
+    --card-inner-border: var(--riff-color-border-default);
+
+    box-shadow: 0 4px 16px -4px color-mix(in srgb, var(--riff-sage-160) 12%, transparent);
+  }
+
+  &.is-soon {
+    --card-bg: transparent;
+    --card-border: var(--riff-color-border-default);
+
+    border-style: dashed;
+    box-shadow: none;
+  }
+
+  &__art {
+    display: grid;
+    place-items: center;
+    height: 11rem;
+    margin-bottom: var(--riff-space-4);
+    overflow: hidden;
+    border: 1px solid var(--card-inner-border);
+    border-radius: var(--pg-radius-sm);
+    background: var(--card-inner);
+    transition: border-color 150ms;
+  }
+
+  // Un paso por encima de la descripción (sm), no más.
+  &__title {
+    font-size: var(--riff-font-size-base);
+    font-weight: var(--riff-font-weight-semibold);
+  }
+
+  &__text {
+    font-size: var(--riff-font-size-sm);
+    line-height: var(--riff-line-height-snug);
+    color: var(--riff-color-content-subtle);
+  }
+}

@@ -1,0 +1,17 @@
+@if (href(); as link) {
+  <a class="card" [routerLink]="link">
+    <ng-container *ngTemplateOutlet="content" />
+  </a>
+} @else {
+  <div class="card" [class.is-soon]="soon()">
+    <ng-container *ngTemplateOutlet="content" />
+  </div>
+}
+
+<ng-template #content>
+  <span class="card__art" aria-hidden="true"><ng-content select="[cardArt]" /></span>
+  <span class="card__title">{{ title() }}</span>
+  @if (description()) {
+    <span class="card__text">{{ description() }}</span>
+  }
+</ng-template>

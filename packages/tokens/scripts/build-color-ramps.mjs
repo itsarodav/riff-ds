@@ -1,4 +1,4 @@
-// Genera tokens/primitives/color.json (DTCG): rampas de 16 pasos (10…160) en OKLCH.
+// Genera tokens/primitives/color.json (DTCG): rampas de 17 pasos (5, 10…160) en OKLCH.
 //
 // Es un generador de la FUENTE, no parte del build: mientras no haya Figma, las
 // rampas se definen aquí. Cuando Figma sea la fuente, este script se retira y
@@ -9,6 +9,10 @@
 // mismo paso tiene el mismo peso visual en cualquier color. Los anclas son
 // colores reales de riffims y se respetan exactos en su paso; la curva se
 // deforma suavemente a su alrededor.
+//
+// El paso 5 (como el 50 de Tailwind) es un tinte casi blanco que sale del 10:
+// sirve para superficies un punto más claras que el fondo light sin caer en
+// un blanco frío.
 //
 // Uso: npm run generate:colors -w @riff-ds/tokens  (añade -- --report para ver contrastes)
 
@@ -103,6 +107,14 @@ function buildRamp({ anchors, chroma, hue }) {
 
 const ramps = Object.fromEntries(Object.entries(FAMILIES).map(([name, f]) => [name, buildRamp(f)]));
 
+// Paso 5: a medio camino entre el 10 y el blanco en L, con menos croma y el mismo tono.
+const TINT_L = 0.5;
+const TINT_C = 0.6;
+const tint = (hex) => {
+  const [l, c, h] = hexToOklch(hex);
+  return oklchToHex([l + (1 - l) * TINT_L, c * TINT_C, h]);
+};
+
 // ---- Salida: JSON DTCG (fuente de verdad que lee Style Dictionary) ----
 const colorValue = (hex) => ({
   colorSpace: 'srgb',
@@ -115,6 +127,7 @@ const colorValue = (hex) => ({
 const json = {};
 for (const [name, ramp] of Object.entries(ramps)) {
   json[name] = { $type: 'color', $description: `Rampa ${name}: generada por build-color-ramps.mjs, no editar a mano.` };
+  json[name][5] = { $value: colorValue(tint(ramp[0])) };
   ramp.forEach((hex, i) => {
     const step = stepName(i);
     json[name][step] = { $value: colorValue(hex) };
