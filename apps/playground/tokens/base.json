@@ -42,6 +42,12 @@
           "value": 1200,
           "unit": "px"
         }
+      },
+      "reading-max": {
+        "$value": {
+          "value": 720,
+          "unit": "px"
+        }
       }
     },
     "font": {

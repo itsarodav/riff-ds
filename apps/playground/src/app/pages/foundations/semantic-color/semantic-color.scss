@@ -137,8 +137,13 @@ code {
   overflow-x: auto;
 }
 
+// Columnas de ancho fijo: todas las tablas (una por grupo) alinean sus chips
+// aunque los nombres de los tokens tengan largos distintos. En pantallas
+// estrechas la tabla mantiene su ancho mínimo y el grupo hace scroll.
 .tokens {
   width: 100%;
+  min-width: 44rem;
+  table-layout: fixed;
   border-collapse: collapse;
   font-size: var(--riff-font-size-sm);
 
@@ -150,6 +155,10 @@ code {
     vertical-align: middle;
   }
 
+  thead th:not(:first-child) {
+    width: 11rem;
+  }
+
   thead th {
     font-size: var(--riff-font-size-xs);
     font-weight: var(--riff-font-weight-semibold);
@@ -158,11 +167,11 @@ code {
   }
 
   &__name {
-    min-width: 18rem;
     font-weight: var(--riff-font-weight-regular);
 
     code {
       display: block;
+      overflow-wrap: anywhere;
       font-weight: var(--riff-font-weight-semibold);
     }
   }

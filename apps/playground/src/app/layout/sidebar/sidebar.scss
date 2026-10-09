@@ -63,8 +63,8 @@
     }
 
     &.is-active {
-      background: var(--pg-color-accent-soft);
-      color: var(--pg-color-accent);
+      background: var(--pg-color-selected);
+      color: var(--pg-color-on-selected);
       font-weight: var(--riff-font-weight-semibold);
     }
   }

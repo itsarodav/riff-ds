@@ -14,32 +14,28 @@ const RELEASES: Release[] = [
     date: '2026-10-09',
     title: 'Color semántico y nueva portada',
     changes: [
-      '76 colores semánticos (background, content, border, action y feedback) en light y dark, como --riff-color-*.',
+      '76 colores semánticos para fondos, texto, bordes, acciones y feedback, en claro y oscuro.',
       'Página Color semántico con vista previa en los dos modos.',
-      'Logo Riff DS: isotipo con el token content/logo y texto en currentColor.',
-      'Portada del playground con navegación a Docs, Playground, Changelog y GitHub.',
-      'Paso 5 en todas las rampas (como el 50 de Tailwind): un tinte casi blanco para superficies. background-surface en light pasa de neutral.10 a sage.5.',
-      'Footer compartido en todas las vistas (portada y shell): enlaces, tema y firma.',
-      'Sección Docs en el sidebar (Introducción, Cómo instalar y Changelog) y contenido centrado con ancho máximo.',
-      'Control segmentado neutro para el selector de tema y las opciones de vista.',
-      'El naranja de marca y del logo queda unificado en orange-80.',
+      'Nuevo paso 5 en todas las rampas: un tinte casi blanco para superficies.',
+      'Logo de Riff DS y naranja de marca unificado en orange-80.',
+      'Nueva portada y footer compartido en todo el playground.',
     ],
   },
   {
     date: '2026-10-08',
     title: 'Tokens DTCG con Style Dictionary',
     changes: [
-      'Los tokens se escriben en JSON W3C DTCG y Style Dictionary genera SCSS, CSS custom properties y JSON.',
-      'Playground con tema claro y oscuro (sistema, claro u oscuro) que se recuerda entre visitas.',
-      'Página Color: rampas, contraste WCAG y copiar como CSS var, SCSS o HEX.',
+      'Los tokens se escriben en JSON DTCG y se generan como SCSS, CSS y JSON.',
+      'Playground con tema claro y oscuro.',
+      'Página Color con rampas, contraste WCAG y copia en varios formatos.',
     ],
   },
   {
     date: '2026-10-08',
     title: 'Primitivos',
     changes: [
-      'Color: 8 familias de 16 pasos (10 → 160) generadas en OKLCH con la misma curva de luminosidad.',
-      'Espaciado en múltiplos de 4px y escala tipográfica, en rem con copia en px.',
+      'Color: 8 familias generadas en OKLCH con la misma curva de luminosidad.',
+      'Escalas de espaciado y tipografía.',
     ],
   },
 ];
@@ -49,7 +45,6 @@ const RELEASES: Release[] = [
   imports: [PageHeader],
   template: `
     <pg-page-header
-      eyebrow="Empezar"
       title="Changelog"
       description="Qué ha cambiado en Riff DS, de lo más reciente a lo más antiguo."
     />
@@ -73,7 +68,6 @@ const RELEASES: Release[] = [
   styles: `
     :host {
       display: block;
-      max-width: 48rem;
     }
 
     .releases {

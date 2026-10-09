@@ -3,9 +3,6 @@ import { Component, input } from '@angular/core';
 @Component({
   selector: 'pg-page-header',
   template: `
-    @if (eyebrow()) {
-      <p class="eyebrow">{{ eyebrow() }}</p>
-    }
     <h1 class="title">{{ title() }}</h1>
     @if (description()) {
       <p class="description">{{ description() }}</p>
@@ -17,24 +14,18 @@ import { Component, input } from '@angular/core';
       display: flex;
       flex-direction: column;
       gap: var(--riff-space-3);
-      max-width: 48rem;
+      max-width: var(--pg-size-reading-max);
       margin-bottom: var(--riff-space-12);
     }
 
-    .eyebrow {
-      font-size: var(--riff-font-size-sm);
-      font-weight: var(--riff-font-weight-semibold);
-      color: var(--pg-color-accent);
-    }
-
     .title {
-      font-size: var(--riff-font-size-2xl);
+      font-size: var(--riff-font-size-xl);
       font-weight: var(--riff-font-weight-bold);
       line-height: var(--riff-line-height-tight);
       letter-spacing: -0.02em;
 
       @media (min-width: 48rem) {
-        font-size: var(--riff-font-size-3xl);
+        font-size: var(--riff-font-size-2xl);
       }
     }
 
@@ -51,6 +42,5 @@ import { Component, input } from '@angular/core';
 })
 export class PageHeader {
   readonly title = input.required<string>();
-  readonly eyebrow = input<string>();
   readonly description = input<string>();
 }

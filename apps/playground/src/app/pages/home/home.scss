@@ -6,7 +6,6 @@
   display: flex;
   flex-direction: column;
   gap: var(--riff-space-4);
-  max-width: 48rem;
   margin-bottom: var(--riff-space-12);
 
   &__title {
@@ -51,8 +50,8 @@ code {
       width: 2rem;
       height: 2rem;
       border-radius: 50%;
-      background: var(--pg-color-accent-soft);
-      color: var(--pg-color-accent);
+      background: var(--pg-color-selected);
+      color: var(--pg-color-on-selected);
       font-weight: var(--riff-font-weight-bold);
     }
   }

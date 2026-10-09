@@ -46,6 +46,14 @@
         "$value": "{blue.150}",
         "$description": "Fondo de elementos seleccionados"
       },
+      "selected": {
+        "$value": "{sage.130}",
+        "$description": "Fondo de lo seleccionado: página actual del sidebar, marcadores"
+      },
+      "on-selected": {
+        "$value": "{sage.10}",
+        "$description": "Texto sobre selected"
+      },
       "on-accent": {
         "$value": "{sage.160}",
         "$description": "Texto sobre accent"

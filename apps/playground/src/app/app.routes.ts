@@ -14,6 +14,7 @@ export const routes: Routes = [
     path: page.path,
     pathMatch: 'full' as const,
     title: `${page.title} | Riff DS`,
+    data: { width: page.width },
     loadComponent: page.loadComponent,
   })),
   { path: '**', redirectTo: '' },

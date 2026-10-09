@@ -4,6 +4,7 @@ import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs';
 
 import { Footer } from './layout/footer/footer';
+import { PageWidth } from './pages';
 import { Sidebar } from './layout/sidebar/sidebar';
 import { Logo } from './shared/logo/logo';
 
@@ -18,6 +19,9 @@ import { Logo } from './shared/logo/logo';
       <router-outlet />
     } @else {
       <header class="topbar">
+        <span class="topbar__brand">
+          <pg-logo class="topbar__logo" />
+        </span>
         <button
           type="button"
           class="topbar__menu"
@@ -34,9 +38,6 @@ import { Logo } from './shared/logo/logo';
             }
           </svg>
         </button>
-        <span class="topbar__brand">
-          <pg-logo class="topbar__logo" />
-        </span>
       </header>
 
       <div class="layout">
@@ -46,12 +47,12 @@ import { Logo } from './shared/logo/logo';
         }
         <div class="layout__main">
           <main id="main" class="layout__content" tabindex="-1">
-            <div class="layout__inner">
+            <div class="layout__inner" [style.max-width]="maxWidth()">
               <router-outlet />
             </div>
           </main>
           <!-- El tema ya se elige en el sidebar. -->
-          <pg-footer [themeSwitch]="false" />
+          <pg-footer [themeSwitch]="false" [style.--footer-max]="maxWidth()" />
         </div>
       </div>
     }
@@ -66,6 +67,8 @@ export class App {
   /** La portada ('/') va a pantalla completa, sin sidebar ni barra superior. */
   // Valor inicial desde la URL para no pintar el shell un instante antes de la portada.
   protected readonly isCover = signal(inject(DOCUMENT).location.pathname === '/');
+  /** Ancho de la página actual (data.width de la ruta), compartido por contenido y footer. */
+  protected readonly maxWidth = signal(widthVar('wide'));
 
   constructor() {
     this.router.events
@@ -76,6 +79,14 @@ export class App {
       .subscribe(() => {
         this.menuOpen.set(false);
         this.isCover.set(this.router.url.split(/[?#]/)[0] === '/');
+
+        let route = this.router.routerState.snapshot.root;
+        while (route.firstChild) route = route.firstChild;
+        this.maxWidth.set(widthVar(route.data['width'] ?? 'wide'));
       });
   }
+}
+
+function widthVar(width: PageWidth): string {
+  return width === 'reading' ? 'var(--pg-size-reading-max)' : 'var(--pg-size-content-max)';
 }
