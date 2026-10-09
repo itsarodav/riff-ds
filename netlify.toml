@@ -1,0 +1,13 @@
+[build]
+  base = ""
+  command = "npm run build"
+  publish = "dist/playground/browser"
+
+[build.environment]
+  NODE_VERSION = "24.15.0"
+
+# SPA: todas las rutas las resuelve el router de Angular
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
