@@ -1,0 +1,211 @@
+:host {
+  display: block;
+  max-width: var(--pg-size-content-max);
+}
+
+code {
+  font-family: var(--pg-font-mono);
+  font-size: 0.9em;
+  // Sin ligaduras: que -- se lea como dos guiones.
+  font-variant-ligatures: none;
+}
+
+.usage {
+  max-width: 36rem;
+  margin-bottom: var(--riff-space-12);
+}
+
+.note {
+  margin-top: var(--riff-space-3);
+  font-size: var(--riff-font-size-xs);
+  color: var(--pg-color-text-muted);
+}
+
+.section-title {
+  margin-bottom: var(--riff-space-3);
+  font-size: var(--riff-font-size-md);
+  font-weight: var(--riff-font-weight-bold);
+
+  &--group {
+    text-transform: capitalize;
+  }
+}
+
+// ---- Vista previa en los dos modos ----
+// Cada panel lleva data-theme, así que dentro --riff-color-* son los de ese modo.
+.preview {
+  margin-bottom: var(--riff-space-12);
+
+  &__modes {
+    display: grid;
+    gap: var(--riff-space-4);
+
+    @media (min-width: 48rem) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__panel {
+    display: flex;
+    flex-direction: column;
+    gap: var(--riff-space-2);
+    padding: var(--riff-space-4);
+    border: 1px solid var(--riff-color-border-default);
+    border-radius: var(--pg-radius-md);
+    background: var(--riff-color-background-canvas);
+    color: var(--riff-color-content-default);
+  }
+
+  &__mode {
+    font-size: var(--riff-font-size-xs);
+    font-weight: var(--riff-font-weight-semibold);
+    color: var(--riff-color-content-subtle);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  gap: var(--riff-space-2);
+  padding: var(--riff-space-2) var(--riff-space-3);
+  border: 1px solid;
+  border-radius: var(--pg-radius-sm);
+
+  &__icon {
+    flex-shrink: 0;
+    width: var(--riff-space-3);
+    height: var(--riff-space-3);
+    border-radius: 50%;
+  }
+
+  &__text {
+    flex: 1;
+    font-size: var(--riff-font-size-sm);
+
+    strong {
+      text-transform: capitalize;
+    }
+  }
+
+  &__badge {
+    padding: 0 var(--riff-space-2);
+    border-radius: var(--riff-space-1);
+    font-size: var(--riff-font-size-2xs);
+    font-weight: var(--riff-font-weight-bold);
+    line-height: 1.6;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--riff-space-3);
+  margin-top: var(--riff-space-2);
+}
+
+.button {
+  padding: var(--riff-space-2) var(--riff-space-4);
+  border-radius: var(--pg-radius-sm);
+  font-size: var(--riff-font-size-sm);
+  font-weight: var(--riff-font-weight-semibold);
+
+  &--primary {
+    background: var(--riff-color-action-primary);
+    color: var(--riff-color-content-on-action);
+  }
+
+  &--secondary {
+    background: var(--riff-color-action-secondary);
+    color: var(--riff-color-content-selected);
+  }
+}
+
+.link {
+  font-size: var(--riff-font-size-sm);
+  color: var(--riff-color-content-link);
+
+  &:hover {
+    color: var(--riff-color-content-link-hover);
+  }
+}
+
+// ---- Tablas de tokens ----
+.group {
+  margin-bottom: var(--riff-space-12);
+  overflow-x: auto;
+}
+
+.tokens {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--riff-font-size-sm);
+
+  th,
+  td {
+    padding: var(--riff-space-2) var(--riff-space-3);
+    border-bottom: 1px solid var(--pg-color-border);
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  thead th {
+    font-size: var(--riff-font-size-xs);
+    font-weight: var(--riff-font-weight-semibold);
+    color: var(--pg-color-text-muted);
+    text-transform: capitalize;
+  }
+
+  &__name {
+    min-width: 18rem;
+    font-weight: var(--riff-font-weight-regular);
+
+    code {
+      display: block;
+      font-weight: var(--riff-font-weight-semibold);
+    }
+  }
+
+  &__desc {
+    font-size: var(--riff-font-size-xs);
+    color: var(--pg-color-text-muted);
+  }
+}
+
+.value {
+  display: flex;
+  align-items: center;
+  gap: var(--riff-space-2);
+  white-space: nowrap;
+
+  // El marco usa el fondo del modo para que el chip se vea en contexto.
+  &__chip {
+    display: block;
+    flex-shrink: 0;
+    padding: var(--riff-space-1);
+    border: 1px solid var(--riff-color-border-default);
+    border-radius: var(--pg-radius-sm);
+    background: var(--riff-color-background-canvas);
+
+    span {
+      display: block;
+      width: var(--riff-space-8);
+      height: var(--riff-space-6);
+      border-radius: var(--riff-space-1);
+      box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.08);
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    font-size: var(--riff-font-size-xs);
+    color: var(--pg-color-text-muted);
+
+    code {
+      color: var(--pg-color-text);
+    }
+  }
+}

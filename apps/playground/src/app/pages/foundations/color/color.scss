@@ -1,0 +1,202 @@
+:host {
+  display: block;
+  max-width: var(--pg-size-content-max);
+}
+
+code {
+  font-size: 0.9em;
+}
+
+.usage {
+  max-width: 36rem;
+  margin-bottom: var(--riff-space-8);
+}
+
+// ---- Barra de opciones ----
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--riff-space-4) var(--riff-space-6);
+  margin-bottom: var(--riff-space-4);
+}
+
+.legend {
+  font-size: var(--riff-font-size-xs);
+  color: var(--pg-color-text-muted);
+}
+
+// ---- Insignias de contraste ----
+.badge {
+  display: inline-block;
+  padding: 0 var(--riff-space-1);
+  border-radius: var(--riff-space-1);
+  font-size: var(--riff-font-size-2xs);
+  font-weight: var(--riff-font-weight-bold);
+  line-height: 1.5;
+  vertical-align: 1px;
+
+  &[data-level='AAA'] {
+    background: var(--pg-color-badge-aaa-bg);
+    color: var(--pg-color-badge-aaa-text);
+  }
+
+  &[data-level='AA'] {
+    background: var(--pg-color-badge-aa-bg);
+    color: var(--pg-color-badge-aa-text);
+  }
+
+  &[data-level='AA+'] {
+    background: var(--pg-color-badge-aa-large-bg);
+    color: var(--pg-color-badge-aa-large-text);
+  }
+
+  &[data-level='—'] {
+    background: var(--pg-color-badge-fail-bg);
+    color: var(--pg-color-badge-fail-text);
+  }
+}
+
+// ---- Vista previa ----
+// Lleva data-theme, así que estos --pg-color-* son los del tema que muestra,
+// no los del playground.
+.panel {
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+  gap: var(--riff-space-8);
+  padding: var(--riff-space-4);
+  border: 1px solid var(--pg-color-border);
+  border-radius: var(--pg-radius-md);
+  background: var(--pg-color-bg);
+  color: var(--pg-color-text);
+
+  @media (min-width: 48rem) {
+    padding: var(--riff-space-6);
+  }
+}
+
+.family {
+  &__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--riff-space-1) var(--riff-space-4);
+    margin-bottom: var(--riff-space-3);
+  }
+
+  &__name {
+    font-size: var(--riff-font-size-md);
+    font-weight: var(--riff-font-weight-bold);
+    text-transform: capitalize;
+  }
+
+  &__anchors {
+    font-size: var(--riff-font-size-xs);
+    color: var(--pg-color-text-muted);
+  }
+}
+
+.ramp {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--riff-space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @container (min-width: 36rem) {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+
+  @container (min-width: 64rem) {
+    grid-template-columns: repeat(16, minmax(0, 1fr));
+    gap: var(--riff-space-1);
+  }
+}
+
+.swatch {
+  display: flex;
+  flex-direction: column;
+  gap: var(--riff-space-0-5);
+  width: 100%;
+  padding: 0 0 var(--riff-space-1);
+  border: 0;
+  border-radius: var(--pg-radius-sm);
+  background: none;
+  text-align: left;
+  cursor: pointer;
+
+  &:hover .swatch__chip {
+    transform: translateY(-2px);
+  }
+
+  &__chip {
+    position: relative;
+    display: block;
+    height: 3.5rem;
+    margin-bottom: var(--riff-space-1);
+    border-radius: var(--pg-radius-sm);
+    box-shadow: inset 0 0 0 1px var(--pg-color-border);
+    transition: transform 150ms;
+  }
+
+  // Depende del color del chip, no del tema: por eso usa primitivos.
+  &__anchor {
+    position: absolute;
+    top: var(--riff-space-1);
+    right: var(--riff-space-1);
+    font-size: var(--riff-font-size-2xs);
+    line-height: 1;
+    color: var(--riff-sage-160);
+
+    &.is-light {
+      color: var(--riff-neutral-10);
+    }
+  }
+
+  &__step {
+    font-size: var(--riff-font-size-sm);
+    font-weight: var(--riff-font-weight-semibold);
+  }
+
+  &__hex,
+  &__contrast {
+    font-size: var(--riff-font-size-2xs);
+    color: var(--pg-color-text-muted);
+  }
+
+  &__hex {
+    font-family: var(--pg-font-mono);
+  }
+
+  &__contrast {
+    display: flex;
+    align-items: center;
+    gap: var(--riff-space-1);
+  }
+}
+
+// ---- Aviso de copiado ----
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: var(--riff-space-6);
+  z-index: 30;
+  padding: var(--riff-space-2) var(--riff-space-4);
+  border-radius: var(--pg-radius-md);
+  background: var(--pg-color-inverse-bg);
+  color: var(--pg-color-inverse-text);
+  font-size: var(--riff-font-size-sm);
+  transform: translate(-50%, 1rem);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 150ms,
+    transform 150ms;
+
+  &.is-visible {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}

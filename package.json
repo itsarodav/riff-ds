@@ -3,10 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "tokens": "npm run build -w @riff-ds/tokens && node apps/playground/scripts/build-theme.mjs",
+    "prestart": "npm run tokens",
+    "start": "ng serve playground",
+    "prebuild": "npm run tokens",
+    "build": "ng build playground",
+    "watch": "ng build playground --watch --configuration development",
+    "test": "ng test playground"
   },
   "private": true,
   "packageManager": "npm@11.12.1",
@@ -27,5 +30,8 @@
     "@angular/compiler-cli": "^22.1.0",
     "prettier": "^3.8.1",
     "typescript": "~6.0.2"
-  }
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }

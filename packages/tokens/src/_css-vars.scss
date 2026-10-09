@@ -1,0 +1,11 @@
+@use 'sass:meta';
+@use '../dist/scss/tokens' as *;
+
+// Emite todos los tokens como CSS custom properties con prefijo --riff-.
+// Uso: :root { @include riff.primitives-css-vars; }
+// Alternativa sin Sass: importar @riff-ds/tokens/tokens.css (mismo contenido).
+@mixin primitives-css-vars {
+  @each $name, $value in $riff-tokens {
+    --riff-#{$name}: #{meta.inspect($value)};
+  }
+}

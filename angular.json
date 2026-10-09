@@ -4,9 +4,9 @@
   "cli": {
     "packageManager": "npm"
   },
-  "newProjectRoot": "projects",
+  "newProjectRoot": "packages",
   "projects": {
-    "riff-ds": {
+    "playground": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -35,23 +35,26 @@
           "skipTests": true
         }
       },
-      "root": "",
-      "sourceRoot": "src",
-      "prefix": "app",
+      "root": "apps/playground",
+      "sourceRoot": "apps/playground/src",
+      "prefix": "pg",
       "architect": {
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "browser": "src/main.ts",
-            "tsConfig": "tsconfig.app.json",
+            "browser": "apps/playground/src/main.ts",
+            "tsConfig": "apps/playground/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "apps/playground/public"
               }
             ],
-            "styles": ["src/styles.scss"]
+            "styles": [
+              "apps/playground/src/styles.scss"
+            ],
+            "outputPath": "dist/playground"
           },
           "configurations": {
             "production": {
@@ -63,8 +66,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "6kB",
+                  "maximumError": "10kB"
                 }
               ],
               "outputHashing": "all"
@@ -81,10 +84,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "riff-ds:build:production"
+              "buildTarget": "playground:build:production"
             },
             "development": {
-              "buildTarget": "riff-ds:build:development"
+              "buildTarget": "playground:build:development"
             }
           },
           "defaultConfiguration": "development"

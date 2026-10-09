@@ -1,0 +1,53 @@
+<pg-page-header
+  eyebrow="riff-ds"
+  title="El design system de Riffims"
+  description="Tokens, foundations y componentes para Angular y React. Este playground es la referencia visual y el sitio de donde copiar cómo instalar y usar cada pieza."
+/>
+
+<section class="section" aria-labelledby="install-title">
+  <h2 id="install-title" class="section__title">Instalación</h2>
+  <p class="section__text">
+    De momento <code>&#64;riff-ds/tokens</code> vive en este monorepo y aún no está publicado en npm.
+  </p>
+  <pg-code-block [snippets]="install" label="Formas de instalar y usar los tokens" />
+</section>
+
+<section class="section" aria-labelledby="layers-title">
+  <h2 id="layers-title" class="section__title">Cómo se organizan los tokens</h2>
+  <ol class="layers">
+    <li class="layers__item">
+      <span class="layers__name">Primitivos</span>
+      <span class="layers__text">
+        Valores con nombre por valor: <code>blue-100</code>, <code>space-4</code>,
+        <code>font-size-sm</code>. Es lo que hay ahora.
+      </span>
+    </li>
+    <li class="layers__item">
+      <span class="layers__name">Semánticos</span>
+      <span class="layers__text">
+        Nombre por función (<code>color-text-primary</code>) y cambian por tema. Próximamente.
+      </span>
+    </li>
+    <li class="layers__item">
+      <span class="layers__name">Componente</span>
+      <span class="layers__text">
+        Tokens propios de un componente (<code>button-height-md</code>), solo cuando hacen falta.
+      </span>
+    </li>
+  </ol>
+</section>
+
+<section class="section" aria-labelledby="explore-title">
+  <h2 id="explore-title" class="section__title">Explorar</h2>
+  <a class="card" routerLink="/foundations/color">
+    <span class="card__swatches" aria-hidden="true">
+      <span style="background: var(--riff-sage-40)"></span>
+      <span style="background: var(--riff-blue-100)"></span>
+      <span style="background: var(--riff-orange-80)"></span>
+      <span style="background: var(--riff-yellow-60)"></span>
+      <span style="background: var(--riff-purple-100)"></span>
+    </span>
+    <span class="card__title">Color</span>
+    <span class="card__text">8 rampas de 16 pasos con contraste en tema claro y oscuro.</span>
+  </a>
+</section>

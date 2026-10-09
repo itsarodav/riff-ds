@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>riff-ds · Playground</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Playground de riff-ds: foundations y componentes del design system de Riffims."
+    />
+    <link rel="icon" type="image/svg+xml" href="riffims-favicon.svg" />
+    <!-- Aplica el tema guardado antes de pintar, para evitar un parpadeo (ver theme/theme.ts). -->
+    <script>
+      try {
+        var theme = localStorage.getItem('pg-theme');
+        if (theme === 'light' || theme === 'dark') document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <pg-root></pg-root>
+  </body>
+</html>

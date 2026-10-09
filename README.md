@@ -1,59 +1,78 @@
-# RiffDs
+# riff-ds
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.4.
+Design system de Riffims: tokens, foundations y componentes para Angular y React.
 
-## Development server
+## Estructura
 
-To start a local development server, run:
-
-```bash
-ng serve
+```
+packages/
+  tokens/          @riff-ds/tokens
+    tokens/        fuente de verdad: JSON DTCG (primitives/, semantic/ light y dark; luego component/)
+    scripts/       build con Style Dictionary + generador de rampas de color
+    src/           API SCSS (mixin, space()) sobre lo generado
+    dist/          generado: SCSS, tokens.css, semantic.css y JSON (no se versiona)
+apps/
+  playground/      App Angular con la referencia visual del DS
+    tokens/        tokens propios del playground (pg.*) con modos light / dark
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Es un monorepo con npm workspaces: `npm install` en la raíz instala todo.
 
-## Code scaffolding
+## Tokens: flujo
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```
+tokens/**/*.json (DTCG) ──▶ Style Dictionary ──▶ dist/_tokens.scss   $riff-*  (rem + -px)
+                                              ├─▶ dist/tokens.css     --riff-*  primitivos
+                                              ├─▶ dist/semantic.css   --riff-color-*  light y dark
+                                              └─▶ dist/*.json         datos para el playground
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- **Solo se edita JSON.** Todo lo demás se genera; preparado para que un agente sincronice desde Figma Variables y abra un PR.
+- **Dimensiones en px** en la fuente (como en Figma). El build emite rem por defecto y una copia `-px`.
+- **Color:** `primitives/color.json` lo genera `npm run generate:colors -w @riff-ds/tokens` a partir de los anclas de riffims (OKLCH). Cuando Figma sea la fuente, ese script se retira.
+
+Más detalle en [`packages/tokens/tokens/README.md`](packages/tokens/tokens/README.md).
 
 ```bash
-ng generate --help
+npm run tokens         # tokens del DS + tema del playground
 ```
 
-## Building
-
-To build the project run:
+## Playground
 
 ```bash
-ng build
+npm start              # genera tokens y arranca en http://localhost:4200
+npm run build          # genera tokens y compila a dist/playground/browser
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+`prestart` / `prebuild` ejecutan `npm run tokens`. Si editas un JSON con el servidor arrancado, vuelve a lanzar `npm run tokens` y el servidor recarga solo.
 
-## Running unit tests
+### Tema claro / oscuro
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Los colores del playground son tokens propios (`--pg-color-*`) definidos en `apps/playground/tokens/`:
 
-```bash
-ng test
-```
+- `base.json`: lo que no cambia con el tema (radios, tamaños, fuentes).
+- `light.json` / `dark.json`: mismas claves, valores que apuntan a primitivos del DS (`{sage.10}` → `var(--riff-sage-10)`).
 
-## Running end-to-end tests
+El tema sigue al sistema por defecto y se puede fijar desde el sidebar. Cualquier elemento con `data-theme="light"` o `data-theme="dark"` crea su propio ámbito de tema; la vista previa de la página Color lo usa.
 
-For end-to-end (e2e) testing, run:
+### Añadir una página
 
-```bash
-ng e2e
-```
+1. Crea el componente en `apps/playground/src/app/pages/<sección>/<nombre>/`.
+2. Añade una entrada en `apps/playground/src/app/pages.ts`. Las rutas y el sidebar salen de ahí.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Piezas compartidas en `apps/playground/src/app/shared/`:
 
-## Additional Resources
+- `pg-page-header`: título, antetítulo y descripción.
+- `pg-code-block`: código con pestañas (Angular / React / SCSS / CSS…) y botón de copiar.
+- `pg-segmented`: grupo de opciones (radios) con aspecto segmentado.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Usa siempre `--pg-*` para la interfaz del playground, y `--riff-*` solo para mostrar el DS.
+
+### Desplegar
+
+`npm run build` genera un sitio estático en `dist/playground/browser`, que puede subirse a cualquier hosting estático (Vercel, Netlify, Cloudflare Pages, GitHub Pages…). El hosting debe ejecutar `npm run build` (ya incluye los tokens).
+
+Es una SPA, así que el hosting debe devolver `index.html` para cualquier ruta (por ejemplo `/foundations/color`):
+
+- **Vercel / Netlify / Cloudflare Pages:** regla de *rewrite* de `/*` a `/index.html`.
+- **GitHub Pages:** copiar `index.html` como `404.html` y compilar con `--base-href /<repo>/`.

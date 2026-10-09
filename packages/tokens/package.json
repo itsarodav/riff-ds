@@ -1,0 +1,36 @@
+{
+  "name": "@riff-ds/tokens",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Design tokens de riff-ds. Fuente: JSON DTCG (tokens/). Salidas generadas con Style Dictionary: SCSS, CSS custom properties y JSON.",
+  "sass": "src/_index.scss",
+  "style": "dist/tokens.css",
+  "exports": {
+    ".": {
+      "sass": "./src/_index.scss",
+      "style": "./dist/tokens.css",
+      "default": "./dist/tokens.css"
+    },
+    "./tokens.css": "./dist/tokens.css",
+    "./semantic.css": "./dist/semantic.css",
+    "./scss": "./src/_index.scss",
+    "./colors.json": "./dist/colors.json",
+    "./semantic.json": "./dist/semantic.json",
+    "./build": "./scripts/style-dictionary.mjs",
+    "./tokens/*": "./tokens/*",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "tokens",
+    "src",
+    "dist",
+    "scripts"
+  ],
+  "scripts": {
+    "generate:colors": "node scripts/build-color-ramps.mjs",
+    "build": "node scripts/build-tokens.mjs"
+  },
+  "devDependencies": {
+    "style-dictionary": "^5.6.0"
+  }
+}

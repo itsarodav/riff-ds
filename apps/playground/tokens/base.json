@@ -1,0 +1,57 @@
+{
+  "pg": {
+    "radius": {
+      "$type": "dimension",
+      "$description": "Radios del playground",
+      "sm": {
+        "$value": {
+          "value": 6,
+          "unit": "px"
+        }
+      },
+      "md": {
+        "$value": {
+          "value": 12,
+          "unit": "px"
+        }
+      }
+    },
+    "size": {
+      "$type": "dimension",
+      "sidebar": {
+        "$value": {
+          "value": 256,
+          "unit": "px"
+        }
+      },
+      "topbar": {
+        "$value": {
+          "value": 56,
+          "unit": "px"
+        }
+      },
+      "content-max": {
+        "$value": {
+          "value": 1200,
+          "unit": "px"
+        }
+      }
+    },
+    "font": {
+      "$type": "fontFamily",
+      "sans": {
+        "$value": "{font.family.sans}"
+      },
+      "mono": {
+        "$value": [
+          "JetBrains Mono",
+          "ui-monospace",
+          "SFMono-Regular",
+          "Menlo",
+          "Consolas",
+          "monospace"
+        ]
+      }
+    }
+  }
+}
