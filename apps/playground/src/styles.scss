@@ -2,6 +2,8 @@
 // Tokens propios del playground (--pg-*), con modo claro y oscuro.
 // Generado desde apps/playground/tokens/*.json por scripts/build-theme.mjs.
 @use 'generated/pg-theme';
+// Colores semánticos del DS (--riff-color-*), claro y oscuro con el mismo data-theme.
+@use '@riff-ds/tokens/semantic.css';
 
 // Tokens del DS como CSS custom properties (--riff-*).
 :root {

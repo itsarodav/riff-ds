@@ -57,8 +57,17 @@
   }
 
   &__brand {
+    display: flex;
+    align-items: center;
+    gap: var(--riff-space-1);
     font-weight: var(--riff-font-weight-bold);
     letter-spacing: -0.02em;
+    color: var(--pg-color-text-muted);
+  }
+
+  &__logo {
+    height: var(--riff-space-6);
+    color: var(--pg-color-text);
   }
 }
 

@@ -1,0 +1,90 @@
+<pg-page-header
+  eyebrow="Foundations"
+  title="Color semántico"
+  description="Colores por función, no por valor. Cada token apunta a un primitivo distinto en claro y en oscuro, así que los componentes solo usan estos nombres y el tema cambia solo."
+/>
+
+<section class="usage" aria-labelledby="usage-title">
+  <h2 id="usage-title" class="pg-sr-only">Cómo usar los colores semánticos</h2>
+  <pg-code-block [snippets]="usage" label="Cómo usar un color semántico" />
+  <p class="note">
+    En Figma: colección <code>semantic-colors</code> (light) y, de forma provisional,
+    <code>semantic-colors-dark</code>, hasta que el plan permita varios modos en una colección.
+  </p>
+</section>
+
+<!-- Vista previa: los mismos tokens dentro de un ámbito claro y otro oscuro. -->
+<section class="preview" aria-labelledby="preview-title">
+  <h2 id="preview-title" class="section-title">Feedback en los dos modos</h2>
+  <div class="preview__modes">
+    @for (mode of modes; track mode) {
+      <div class="preview__panel" [attr.data-theme]="mode">
+        <p class="preview__mode">{{ mode }}</p>
+        @for (kind of feedback; track kind) {
+          <div
+            class="message"
+            [style.background]="cssVar(kind, 'background')"
+            [style.border-color]="cssVar(kind, 'border')"
+          >
+            <span class="message__icon" [style.background]="cssVar(kind, 'icon')" aria-hidden="true"></span>
+            <p class="message__text" [style.color]="cssVar(kind, 'content')">
+              <strong>{{ kind }}</strong> · mensaje de ejemplo
+            </p>
+            <span
+              class="message__badge"
+              [style.background]="cssVar(kind, 'background-strong')"
+              [style.color]="cssVar(kind, 'content-on-strong')"
+            >
+              {{ kind }}
+            </span>
+          </div>
+        }
+        <div class="actions">
+          <span class="button button--primary">Primario</span>
+          <span class="button button--secondary">Secundario</span>
+          <a class="link" href="#preview-title">Enlace</a>
+        </div>
+      </div>
+    }
+  </div>
+</section>
+
+@for (group of groups; track group.name) {
+  <section class="group" [attr.aria-labelledby]="'group-' + group.name">
+    <h2 class="section-title section-title--group" [id]="'group-' + group.name">{{ group.name }}</h2>
+    <table class="tokens">
+      <thead>
+        <tr>
+          <th scope="col">Token</th>
+          @for (mode of modes; track mode) {
+            <th scope="col">{{ mode }}</th>
+          }
+        </tr>
+      </thead>
+      <tbody>
+        @for (token of group.tokens; track token.name) {
+          <tr>
+            <th scope="row" class="tokens__name">
+              <code>{{ token.cssVar }}</code>
+              <span class="tokens__desc">{{ token.description }}</span>
+            </th>
+            @for (mode of modes; track mode) {
+              @let value = mode === 'light' ? token.light : token.dark;
+              <td>
+                <span class="value">
+                  <span class="value__chip" [attr.data-theme]="mode">
+                    <span [style.background]="'var(' + token.cssVar + ')'"></span>
+                  </span>
+                  <span class="value__text">
+                    <code>{{ value.ref }}</code>
+                    <span>{{ value.hex }}</span>
+                  </span>
+                </span>
+              </td>
+            }
+          </tr>
+        }
+      </tbody>
+    </table>
+  </section>
+}

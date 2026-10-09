@@ -5,8 +5,16 @@ Todo lo que hay aquí es JSON en formato [DTCG](https://www.designtokens.org/) y
 | Carpeta | Capa | Estado |
 |---|---|---|
 | `primitives/` | Valores con nombre por valor: `sage.10`, `space.4`, `font.size.sm` | ✅ |
-| `semantic/` | Nombre por función, con referencias a primitivos (`{sage.130}`) y un archivo por tema | Pendiente |
+| `semantic/` | Nombre por función (`color.content.default`), con referencias a primitivos (`{sage.130}`). `light.json` y `dark.json` tienen las mismas claves | ✅ color |
 | `component/` | Tokens de un componente, con referencias a semánticos | Pendiente |
+
+### Color semántico
+
+Grupos: `background`, `content` (texto e iconos), `border`, `action` y los de feedback `info`, `positive`, `negative`, `warning`, `notice` y `discovery`. Cada grupo de feedback tiene los mismos tokens: `background`, `background-hover`, `background-strong`, `content`, `content-on-strong`, `icon` y `border`.
+
+- **Salida:** `dist/semantic.css` con `--riff-color-<grupo>-<token>` (claro en `:root` y `[data-theme='light']`, oscuro en `[data-theme='dark']` y con `prefers-color-scheme`), y `dist/semantic.json` para el playground.
+- **Figma:** colección `semantic-colors` (modo light) con el code syntax `var(--riff-color-…)`. Mientras el plan de Figma solo permita un modo por colección, el oscuro vive en `semantic-colors-dark`; cuando haya modos, pasa a ser el modo `dark` de `semantic-colors` sin cambiar nombres.
+- **Contraste:** cada par de texto sobre fondo cumple AA (≥ 4.5:1) en los dos modos, e iconos y bordes de control llegan a ≥ 3:1.
 
 ## Convenciones
 

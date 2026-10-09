@@ -157,17 +157,12 @@ export function registerRiffFormats() {
     },
   });
 
-  /** Datos de color para el playground: familias con sus pasos y colores sueltos. */
+  /** Datos de color para el playground: familias con sus pasos. */
   StyleDictionary.registerFormat({
     name: 'riff/colors-json',
     format: ({ dictionary }) => {
       const families = new Map();
-      const extras = [];
       for (const token of dictionary.allTokens.filter((t) => t.$type === 'color')) {
-        if (token.path.length === 1) {
-          extras.push({ name: token.path[0], hex: cssValue(token), note: token.$description ?? '' });
-          continue;
-        }
         const [family, step] = token.path;
         if (!families.has(family)) families.set(family, []);
         families.get(family).push({
@@ -179,7 +174,6 @@ export function registerRiffFormats() {
       const json = {
         $generated: 'Style Dictionary (packages/tokens/scripts/build-tokens.mjs). No editar a mano.',
         families: [...families].map(([name, steps]) => ({ name, steps: steps.sort((a, b) => a.step - b.step) })),
-        extras,
       };
       return JSON.stringify(json, null, 2) + '\n';
     },

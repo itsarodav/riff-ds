@@ -33,4 +33,11 @@ export const PAGES: PlaygroundPage[] = [
     section: 'foundations',
     loadComponent: () => import('./pages/foundations/color/color').then((m) => m.ColorPage),
   },
+  {
+    path: 'foundations/semantic-color',
+    title: 'Color semántico',
+    section: 'foundations',
+    loadComponent: () =>
+      import('./pages/foundations/semantic-color/semantic-color').then((m) => m.SemanticColorPage),
+  },
 ];

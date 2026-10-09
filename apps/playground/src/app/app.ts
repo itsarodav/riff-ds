@@ -4,10 +4,11 @@ import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs';
 
 import { Sidebar } from './layout/sidebar/sidebar';
+import { Logo } from './shared/logo/logo';
 
 @Component({
   selector: 'pg-root',
-  imports: [RouterOutlet, Sidebar],
+  imports: [RouterOutlet, Sidebar, Logo],
   template: `
     <a class="skip-link" href="#main">Saltar al contenido</a>
 
@@ -28,7 +29,10 @@ import { Sidebar } from './layout/sidebar/sidebar';
           }
         </svg>
       </button>
-      <span class="topbar__brand">riff-ds</span>
+      <span class="topbar__brand">
+        <pg-logo class="topbar__logo" />
+        <span>ds</span>
+      </span>
     </header>
 
     <div class="layout">

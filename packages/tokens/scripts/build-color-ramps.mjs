@@ -57,11 +57,6 @@ const FAMILIES = {
   purple: { anchors: { 100: '#7C3AD6' } },
 };
 
-// Fuera de rampa hasta decidir cuál es el naranja de marca (ver docs §3.3).
-const EXTRAS = {
-  'orange-logo': { hex: '#FF5E2D', note: 'Logo y degradados. Pendiente unificar con orange-80.' },
-};
-
 // Interpola linealmente un valor por paso a partir de puntos { índice: valor };
 // fuera del primer/último punto decae hacia `edge` en los extremos, o se
 // mantiene constante si no se pasa `edge`.
@@ -127,9 +122,6 @@ for (const [name, ramp] of Object.entries(ramps)) {
       json[name][step].$extensions = { 'com.riff-ds': { anchor: true } };
     }
   });
-}
-for (const [name, { hex, note }] of Object.entries(EXTRAS)) {
-  json[name] = { $type: 'color', $value: colorValue(hex), $description: note };
 }
 
 const out = fileURLToPath(new URL('../tokens/primitives/color.json', import.meta.url));

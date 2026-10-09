@@ -67,8 +67,6 @@ export class ColorPage {
     }));
   });
 
-  protected readonly extras = colors.extras;
-
   protected readonly usage: CodeSnippet[] = [
     { label: 'CSS', code: `.button {\n  background: var(--riff-blue-100);\n  color: var(--riff-sage-10);\n}` },
     {

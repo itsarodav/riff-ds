@@ -64,28 +64,6 @@
     </section>
   }
 
-  <section class="family" aria-labelledby="family-extras">
-    <header class="family__header">
-      <h2 class="family__name family__name--plain" id="family-extras">Fuera de rampa</h2>
-    </header>
-    <ul class="ramp ramp--extras">
-      @for (extra of extras; track extra.name) {
-        <li>
-          <button
-            type="button"
-            class="swatch"
-            [attr.aria-label]="'Copiar ' + tokenText(extra.name, extra.hex)"
-            (click)="copy(extra.name, extra.hex)"
-          >
-            <span class="swatch__chip" [style.background]="extra.hex"></span>
-            <span class="swatch__step">{{ extra.name }}</span>
-            <span class="swatch__hex">{{ extra.hex }}</span>
-            <span class="swatch__note">{{ extra.note }}</span>
-          </button>
-        </li>
-      }
-    </ul>
-  </section>
 </div>
 
 <div class="toast" [class.is-visible]="lastCopied()" aria-live="polite">

@@ -31,7 +31,7 @@ registerRiffFormats();
 async function themeCss(sources, selector, declarations) {
   const sd = new StyleDictionary({
     usesDtcg: true,
-    include: [glob(dsTokens, '**/*.json')],
+    include: [glob(dsTokens, 'primitives', '**/*.json')],
     source: sources.map((s) => glob(appRoot, 'tokens', s)),
     log: { verbosity: 'silent' },
     platforms: {

@@ -27,11 +27,22 @@ yarn-error.log
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-!.vscode/mcp.json
+# mcp.json no se versiona: suele llevar tokens de servidores MCP (Figma, GitHub…).
 .history/*
 
+# Secretos y configuración local
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+.npmrc
+.claude/settings.local.json
+.claude/*.local.*
+
 # Miscellaneous
-/.angular/cache
+/.angular/
 .sass-cache/
 /connect.lock
 /coverage

@@ -11,15 +11,13 @@
 .brand {
   display: none;
   flex-direction: column;
+  gap: var(--riff-space-1);
   padding-inline: var(--riff-space-3);
   color: inherit;
   text-decoration: none;
 
-  &__name {
-    font-size: var(--riff-font-size-lg);
-    font-weight: var(--riff-font-weight-bold);
-    letter-spacing: -0.02em;
-    line-height: var(--riff-line-height-tight);
+  &__logo {
+    height: var(--riff-space-6);
   }
 
   &__tag {

@@ -7,14 +7,13 @@ Design system de Riffims: tokens, foundations y componentes para Angular y React
 ```
 packages/
   tokens/          @riff-ds/tokens
-    tokens/        fuente de verdad: JSON DTCG (primitives/, luego semantic/ y component/)
+    tokens/        fuente de verdad: JSON DTCG (primitives/, semantic/ light y dark; luego component/)
     scripts/       build con Style Dictionary + generador de rampas de color
     src/           API SCSS (mixin, space()) sobre lo generado
-    dist/          generado: SCSS, tokens.css, colors.json (no se versiona)
+    dist/          generado: SCSS, tokens.css, semantic.css y JSON (no se versiona)
 apps/
   playground/      App Angular con la referencia visual del DS
     tokens/        tokens propios del playground (pg.*) con modos light / dark
-docs/              Auditoría de riffims y decisiones de arquitectura
 ```
 
 Es un monorepo con npm workspaces: `npm install` en la raíz instala todo.
@@ -23,8 +22,9 @@ Es un monorepo con npm workspaces: `npm install` en la raíz instala todo.
 
 ```
 tokens/**/*.json (DTCG) ──▶ Style Dictionary ──▶ dist/_tokens.scss   $riff-*  (rem + -px)
-                                              ├─▶ dist/tokens.css     --riff-*
-                                              └─▶ dist/colors.json    datos para el playground
+                                              ├─▶ dist/tokens.css     --riff-*  primitivos
+                                              ├─▶ dist/semantic.css   --riff-color-*  light y dark
+                                              └─▶ dist/*.json         datos para el playground
 ```
 
 - **Solo se edita JSON.** Todo lo demás se genera; preparado para que un agente sincronice desde Figma Variables y abra un PR.

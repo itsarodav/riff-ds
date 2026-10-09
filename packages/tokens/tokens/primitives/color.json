@@ -1508,18 +1508,5 @@
     },
     "$type": "color",
     "$description": "Rampa purple: generada por build-color-ramps.mjs, no editar a mano."
-  },
-  "orange-logo": {
-    "$type": "color",
-    "$value": {
-      "colorSpace": "srgb",
-      "components": [
-        1,
-        0.3686,
-        0.1765
-      ],
-      "hex": "#FF5E2D"
-    },
-    "$description": "Logo y degradados. Pendiente unificar con orange-80."
   }
 }

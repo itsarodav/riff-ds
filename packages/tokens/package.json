@@ -12,8 +12,10 @@
       "default": "./dist/tokens.css"
     },
     "./tokens.css": "./dist/tokens.css",
+    "./semantic.css": "./dist/semantic.css",
     "./scss": "./src/_index.scss",
     "./colors.json": "./dist/colors.json",
+    "./semantic.json": "./dist/semantic.json",
     "./build": "./scripts/style-dictionary.mjs",
     "./tokens/*": "./tokens/*",
     "./package.json": "./package.json"

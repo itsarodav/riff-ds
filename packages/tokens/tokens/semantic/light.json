@@ -1,0 +1,325 @@
+{
+  "color": {
+    "$type": "color",
+    "background": {
+      "canvas": {
+        "$value": "{sage.10}",
+        "$description": "Fondo de la página."
+      },
+      "surface": {
+        "$value": "{neutral.10}",
+        "$description": "Tarjetas, paneles y controles elevados sobre canvas."
+      },
+      "surface-sunken": {
+        "$value": "{sage.20}",
+        "$description": "Zonas hundidas: sidebar, barras, bloques secundarios."
+      },
+      "surface-muted": {
+        "$value": "{neutral.20}",
+        "$description": "Fondos neutros de apoyo: buscador, filas alternas."
+      },
+      "hover": {
+        "$value": "{sage.30}",
+        "$description": "Hover sobre superficies y elementos de lista."
+      },
+      "pressed": {
+        "$value": "{sage.40}",
+        "$description": "Estado activo o pulsado sobre superficies."
+      },
+      "selected": {
+        "$value": "{blue.20}",
+        "$description": "Elemento seleccionado (fila, item de navegación, chip). Texto: content/selected."
+      },
+      "disabled": {
+        "$value": "{neutral.30}",
+        "$description": "Fondo de elementos deshabilitados. Texto: content/disabled."
+      },
+      "inverse": {
+        "$value": "{sage.150}",
+        "$description": "Superficie invertida: tooltips, toasts oscuros. Texto: content/inverse."
+      },
+      "brand": {
+        "$value": "{orange.80}",
+        "$description": "Color de marca (logo, degradados, acentos). Decorativo: no poner texto pequeño encima."
+      },
+      "brand-subtle": {
+        "$value": "{orange.20}",
+        "$description": "Fondo suave de marca: degradados, glow y destacados."
+      }
+    },
+    "content": {
+      "default": {
+        "$value": "{sage.130}",
+        "$description": "Texto e iconos principales."
+      },
+      "subtle": {
+        "$value": "{sage.100}",
+        "$description": "Texto secundario: hints, metadatos, placeholders (≥ 4.5:1)."
+      },
+      "disabled": {
+        "$value": "{sage.80}",
+        "$description": "Texto deshabilitado (exento del contraste mínimo WCAG)."
+      },
+      "inverse": {
+        "$value": "{sage.10}",
+        "$description": "Texto sobre background/inverse."
+      },
+      "on-action": {
+        "$value": "{neutral.10}",
+        "$description": "Texto e iconos sobre action/primary."
+      },
+      "brand": {
+        "$value": "{orange.100}",
+        "$description": "Texto en color de marca, accesible. Para iconos o acentos grandes: background/brand."
+      },
+      "link": {
+        "$value": "{blue.100}",
+        "$description": "Enlaces de texto (≥ 4.5:1 sobre canvas)."
+      },
+      "link-hover": {
+        "$value": "{blue.120}",
+        "$description": "Enlace en hover."
+      },
+      "selected": {
+        "$value": "{blue.120}",
+        "$description": "Texto de un elemento seleccionado sobre background/selected o action/secondary."
+      }
+    },
+    "border": {
+      "default": {
+        "$value": "{sage.40}",
+        "$description": "Bordes decorativos: tarjetas, separadores."
+      },
+      "subtle": {
+        "$value": "{sage.30}",
+        "$description": "Divisores muy suaves dentro de una superficie."
+      },
+      "strong": {
+        "$value": "{sage.90}",
+        "$description": "Límite de controles (inputs, checkbox): ≥3:1 (WCAG 1.4.11)."
+      },
+      "selected": {
+        "$value": "{blue.100}",
+        "$description": "Borde de elemento seleccionado o activo."
+      },
+      "focus": {
+        "$value": "{blue.90}",
+        "$description": "Anillo de foco de teclado (outline 2px)."
+      },
+      "disabled": {
+        "$value": "{sage.50}",
+        "$description": "Borde de elementos deshabilitados."
+      },
+      "inverse": {
+        "$value": "{sage.130}",
+        "$description": "Borde sobre background/inverse."
+      }
+    },
+    "action": {
+      "primary": {
+        "$value": "{blue.100}",
+        "$description": "Acción principal: botón primario, chip seleccionado. Texto: content/on-action."
+      },
+      "primary-hover": {
+        "$value": "{blue.110}",
+        "$description": "Hover de la acción principal."
+      },
+      "primary-pressed": {
+        "$value": "{blue.120}",
+        "$description": "Acción principal pulsada."
+      },
+      "secondary": {
+        "$value": "{blue.20}",
+        "$description": "Acción secundaria (botón tonal). Texto: content/selected."
+      },
+      "secondary-hover": {
+        "$value": "{blue.30}",
+        "$description": "Hover de la acción secundaria."
+      },
+      "disabled": {
+        "$value": "{neutral.30}",
+        "$description": "Botón deshabilitado. Texto: content/disabled."
+      }
+    },
+    "info": {
+      "background": {
+        "$value": "{blue.20}",
+        "$description": "Fondo suave de info. Información neutra: toasts, mensajes y avisos informativos."
+      },
+      "background-hover": {
+        "$value": "{blue.30}",
+        "$description": "Hover sobre el fondo suave de info."
+      },
+      "background-strong": {
+        "$value": "{blue.100}",
+        "$description": "Fondo sólido de info (badges, banners destacados). Texto encima: info/content-on-strong."
+      },
+      "content": {
+        "$value": "{blue.120}",
+        "$description": "Texto de info sobre su fondo suave o sobre background/canvas."
+      },
+      "content-on-strong": {
+        "$value": "{neutral.10}",
+        "$description": "Texto e iconos sobre info/background-strong."
+      },
+      "icon": {
+        "$value": "{blue.100}",
+        "$description": "Icono de info (≥3:1 sobre su fondo suave)."
+      },
+      "border": {
+        "$value": "{blue.60}",
+        "$description": "Borde de info (mensajes y tags con contorno)."
+      }
+    },
+    "positive": {
+      "background": {
+        "$value": "{green.20}",
+        "$description": "Fondo suave de positive. Éxito o confirmación: guardado, completado, validación correcta."
+      },
+      "background-hover": {
+        "$value": "{green.30}",
+        "$description": "Hover sobre el fondo suave de positive."
+      },
+      "background-strong": {
+        "$value": "{green.110}",
+        "$description": "Fondo sólido de positive (badges, banners destacados). Texto encima: positive/content-on-strong."
+      },
+      "content": {
+        "$value": "{green.120}",
+        "$description": "Texto de positive sobre su fondo suave o sobre background/canvas."
+      },
+      "content-on-strong": {
+        "$value": "{neutral.10}",
+        "$description": "Texto e iconos sobre positive/background-strong."
+      },
+      "icon": {
+        "$value": "{green.100}",
+        "$description": "Icono de positive (≥3:1 sobre su fondo suave)."
+      },
+      "border": {
+        "$value": "{green.60}",
+        "$description": "Borde de positive (mensajes y tags con contorno)."
+      }
+    },
+    "negative": {
+      "background": {
+        "$value": "{red.20}",
+        "$description": "Fondo suave de negative. Error o acción destructiva: validación de formularios, fallos, eliminar."
+      },
+      "background-hover": {
+        "$value": "{red.30}",
+        "$description": "Hover sobre el fondo suave de negative."
+      },
+      "background-strong": {
+        "$value": "{red.100}",
+        "$description": "Fondo sólido de negative (badges, banners destacados). Texto encima: negative/content-on-strong."
+      },
+      "content": {
+        "$value": "{red.120}",
+        "$description": "Texto de negative sobre su fondo suave o sobre background/canvas."
+      },
+      "content-on-strong": {
+        "$value": "{neutral.10}",
+        "$description": "Texto e iconos sobre negative/background-strong."
+      },
+      "icon": {
+        "$value": "{red.100}",
+        "$description": "Icono de negative (≥3:1 sobre su fondo suave)."
+      },
+      "border": {
+        "$value": "{red.60}",
+        "$description": "Borde de negative (mensajes y tags con contorno)."
+      }
+    },
+    "warning": {
+      "background": {
+        "$value": "{yellow.20}",
+        "$description": "Fondo suave de warning. Atención: algo puede fallar o requiere revisión."
+      },
+      "background-hover": {
+        "$value": "{yellow.30}",
+        "$description": "Hover sobre el fondo suave de warning."
+      },
+      "background-strong": {
+        "$value": "{yellow.60}",
+        "$description": "Fondo sólido de warning (badges, banners destacados). Texto encima: warning/content-on-strong."
+      },
+      "content": {
+        "$value": "{yellow.120}",
+        "$description": "Texto de warning sobre su fondo suave o sobre background/canvas."
+      },
+      "content-on-strong": {
+        "$value": "{yellow.150}",
+        "$description": "Texto e iconos sobre warning/background-strong."
+      },
+      "icon": {
+        "$value": "{yellow.90}",
+        "$description": "Icono de warning (≥3:1 sobre su fondo suave)."
+      },
+      "border": {
+        "$value": "{yellow.60}",
+        "$description": "Borde de warning (mensajes y tags con contorno)."
+      }
+    },
+    "notice": {
+      "background": {
+        "$value": "{orange.20}",
+        "$description": "Fondo suave de notice. Aviso destacado no crítico: recordatorios, pendientes, novedades de estado."
+      },
+      "background-hover": {
+        "$value": "{orange.30}",
+        "$description": "Hover sobre el fondo suave de notice."
+      },
+      "background-strong": {
+        "$value": "{orange.100}",
+        "$description": "Fondo sólido de notice (badges, banners destacados). Texto encima: notice/content-on-strong."
+      },
+      "content": {
+        "$value": "{orange.120}",
+        "$description": "Texto de notice sobre su fondo suave o sobre background/canvas."
+      },
+      "content-on-strong": {
+        "$value": "{neutral.10}",
+        "$description": "Texto e iconos sobre notice/background-strong."
+      },
+      "icon": {
+        "$value": "{orange.100}",
+        "$description": "Icono de notice (≥3:1 sobre su fondo suave)."
+      },
+      "border": {
+        "$value": "{orange.60}",
+        "$description": "Borde de notice (mensajes y tags con contorno)."
+      }
+    },
+    "discovery": {
+      "background": {
+        "$value": "{purple.20}",
+        "$description": "Fondo suave de discovery. Novedades, onboarding o funciones nuevas por descubrir."
+      },
+      "background-hover": {
+        "$value": "{purple.30}",
+        "$description": "Hover sobre el fondo suave de discovery."
+      },
+      "background-strong": {
+        "$value": "{purple.100}",
+        "$description": "Fondo sólido de discovery (badges, banners destacados). Texto encima: discovery/content-on-strong."
+      },
+      "content": {
+        "$value": "{purple.120}",
+        "$description": "Texto de discovery sobre su fondo suave o sobre background/canvas."
+      },
+      "content-on-strong": {
+        "$value": "{neutral.10}",
+        "$description": "Texto e iconos sobre discovery/background-strong."
+      },
+      "icon": {
+        "$value": "{purple.100}",
+        "$description": "Icono de discovery (≥3:1 sobre su fondo suave)."
+      },
+      "border": {
+        "$value": "{purple.60}",
+        "$description": "Borde de discovery (mensajes y tags con contorno)."
+      }
+    }
+  }
+}
